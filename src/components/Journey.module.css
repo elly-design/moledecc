@@ -1,0 +1,214 @@
+.journey {
+  padding: 6rem 0;
+  background-color: #f9fafb;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+.sectionHeader {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.sectionTitle {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #1f2937;
+  margin-bottom: 1rem;
+}
+
+.sectionSubtitle {
+  font-size: 1.25rem;
+  color: #6b7280;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.timeline {
+  position: relative;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 2rem 0;
+}
+
+.timeline::after {
+  content: '';
+  position: absolute;
+  width: 4px;
+  background-color: #e5e7eb;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  margin-left: -2px;
+  border-radius: 2px;
+}
+
+.milestone {
+  padding: 1.5rem 3rem;
+  position: relative;
+  width: 50%;
+  box-sizing: border-box;
+  margin-bottom: 2rem;
+}
+
+.milestoneLeft {
+  left: 0;
+  text-align: right;
+  padding-right: 4rem;
+}
+
+.milestoneRight {
+  left: 50%;
+  text-align: left;
+  padding-left: 4rem;
+}
+
+.milestoneContent {
+  background: white;
+  padding: 2rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.milestoneContent:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+
+.year {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #3b82f6;
+  margin-bottom: 0.5rem;
+}
+
+.title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #1f2937;
+  margin-bottom: 1rem;
+}
+
+.description {
+  color: #4b5563;
+  line-height: 1.6;
+}
+
+.milestone::after {
+  content: '';
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background-color: #3b82f6;
+  border: 4px solid white;
+  border-radius: 50%;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 1;
+}
+
+.milestoneLeft::after {
+  right: -10px;
+}
+
+.milestoneRight::after {
+  left: -10px;
+}
+
+.achievements {
+  margin-top: 6rem;
+  text-align: center;
+  padding: 4rem 0;
+  background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+  border-radius: 0.5rem;
+}
+
+.achievementsTitle {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #1e40af;
+  margin-bottom: 1.5rem;
+}
+
+.achievementsSubtitle {
+  font-size: 1.25rem;
+  color: #4b5563;
+  max-width: 800px;
+  margin: 0 auto 3rem;
+}
+
+.achievementGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  padding: 0 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.achievementCard {
+  background: white;
+  padding: 2rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.achievementCard:hover {
+  transform: translateY(-5px);
+}
+
+.achievementIcon {
+  font-size: 2.5rem;
+  color: #3b82f6;
+  margin-bottom: 1rem;
+}
+
+.achievementTitle {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #1f2937;
+  margin-bottom: 0.75rem;
+}
+
+.achievementDescription {
+  color: #4b5563;
+  line-height: 1.6;
+}
+
+@media (max-width: 768px) {
+  .timeline::after {
+    left: 31px;
+  }
+
+  .milestone {
+    width: 100%;
+    padding-left: 70px;
+    padding-right: 25px;
+    text-align: left;
+  }
+
+  .milestoneLeft, .milestoneRight {
+    left: 0;
+    padding-right: 25px;
+    padding-left: 70px;
+    text-align: left;
+  }
+
+  .milestoneLeft::after, .milestoneRight::after {
+    left: 20px;
+  }
+
+  .sectionTitle {
+    font-size: 2rem;
+  }
+
+  .sectionSubtitle, .achievementsSubtitle {
+    font-size: 1.1rem;
+  }
+}
