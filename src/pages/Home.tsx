@@ -6,6 +6,7 @@ import {
   LightBulbIcon, 
   ChartBarIcon, 
   UserGroupIcon,
+  AcademicCapIcon,
   ArrowTopRightOnSquareIcon,
   ClockIcon,
   CheckCircleIcon,
@@ -151,19 +152,19 @@ export default function Home() {
 
   const testimonials: Testimonial[] = [
     {
-      quote: "This transformation has been game-changing for our organization. The strategic insights and leadership development have propelled us forward.",
-      author: "Sarah Johnson",
-      role: "CEO, TechCorp"
+      quote: "Through Moledecc’s youth programs, I learned skills that go beyond academics. My confidence has skyrocketed and I now feel ready to take on leadership and entrepreneurial opportunities. This program truly transforms lives.",
+      author: "Brian O.",
+      role: "Student & Youth Leader"
     },
     {
-      quote: "The team's expertise in organizational development is unmatched. They helped us navigate complex challenges with ease.",
+      quote: "Moledecc’s workshops are unlike anything I’ve attended before. They are engaging, highly interactive and full of practical insights. I left feeling motivated, inspired and equipped with tools I immediately applied in my work.",
       author: "Michael Chen",
-      role: "COO, InnovateX"
+      role: "HR Manager"
     },
     {
-      quote: "Working with them was a transformative experience. Their approach to leadership development is truly innovative.",
+      quote: "Moledecc doesn’t just provide training they create transformation. Every session I’ve attended has left me inspired, motivated and ready to take bold action. Their approach to personal and professional growth is unmatched.",
       author: "Emily Rodriguez",
-      role: "HR Director, GrowthLabs"
+      role: "Corporate Executive, Nairobi"
     }
   ];
 
@@ -196,18 +197,23 @@ export default function Home() {
   const features = [
     {
       icon: LightBulbIcon,
-      title: 'Innovative Solutions',
-      description: 'We craft cutting-edge solutions tailored to your unique business needs and challenges.'
-    },
-    {
-      icon: ChartBarIcon,
-      title: 'Data-Driven Approach',
-      description: 'Our strategies are backed by comprehensive data analysis and market research.'
+      title: 'Motivational & Leadership Training',
+      description: 'We provide dynamic training sessions designed to inspire and equip individuals with essential leadership skills. Our programs focus on fostering confidence, strategic thinking and effective communication to help participants thrive in both personal and professional environments.'
     },
     {
       icon: UserGroupIcon,
-      title: 'Expert Team',
-      description: 'Work with a team of industry veterans and subject matter experts.'
+      title: 'Mentorship & Coaching',
+      description: 'Our tailored mentorship and coaching services guide individuals through personal and career development journeys. We pair practical guidance with actionable strategies to empower growth, unlock potential, and achieve meaningful goals.'
+    },
+    {
+      icon: ChartBarIcon,
+      title: 'Conferences & Workshops',
+      description: 'We organize and facilitate engaging conferences and interactive workshops that promote knowledge-sharing, innovation, and professional networking. Each event is designed to deliver impactful learning experiences for participants from diverse backgrounds.'
+    },
+    {
+      icon: AcademicCapIcon,
+      title: 'Youth Capacity Building',
+      description: 'We focus on empowering young people through targeted programs that enhance skills, build confidence, and prepare them for leadership and entrepreneurial opportunities. Our youth capacity-building initiatives equip the next generation with tools to succeed in an ever-changing world.'
     }
   ];
 
@@ -215,27 +221,27 @@ export default function Home() {
   const slides = [
     {
       id: 1,
-      title: 'Transforming Ideas into',
-      highlight: 'Digital Reality',
-      subtitle: 'We help businesses grow through innovative digital solutions and strategic consulting.',
+      title: 'Ignite Your',
+      highlight: 'Leadership Potential',
+      subtitle: 'Dynamic sessions to inspire confidence, strategic thinking and effective communication.',
       button1: 'Get Started',
       button2: 'Learn More',
       image: slide1
     },
     {
       id: 2,
-      title: 'Innovative Solutions for',
-      highlight: 'Your Business',
-      subtitle: 'Leverage cutting-edge technology to stay ahead of the competition.',
+      title: 'Unlock Your',
+      highlight: 'True Potential',
+      subtitle: 'Tailored mentorship and coaching to empower growth and achieve meaningful goals.',
       button1: 'Our Services',
       button2: 'View Portfolio',
       image: slide2
     },
     {
       id: 3,
-      title: 'Expert Guidance for',
-      highlight: 'Digital Success',
-      subtitle: 'Partner with industry leaders to transform your digital presence.',
+      title: 'Connect, Learn',
+      highlight: ', Innovate',
+      subtitle: 'Engaging conferences and workshops that promote knowledge-sharing and professional growth.',
       button1: 'Contact Us',
       button2: 'Our Process',
       image: slide3
@@ -366,7 +372,7 @@ export default function Home() {
           <div className="text-center mb-16">
             <h2 className="section-title">Our Core Services</h2>
             <p className="section-subtitle">
-              We provide comprehensive solutions to help your business thrive in the digital landscape.
+              Empowering individuals and organizations through transformative leadership, mentorship, and capacity building initiatives.
             </p>
           </div>
           <div className={styles.featuresGrid}>

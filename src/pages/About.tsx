@@ -351,7 +351,7 @@ const About: React.FC = () => {
               A Decade of <span className="text-amber-300">Transforming</span> Organizations
             </h1>
             <p className={styles.heroSubtitle}>
-              Empowering businesses to achieve excellence through innovation, strategy and digital transformation since 2007.
+              Empowering individuals leaders and organizations to unlock their potential through motivation leadership development, coaching and strategic community development  since 2007.
             </p>
             <div className={styles.statsContainer}>
             </div>
@@ -376,16 +376,16 @@ const About: React.FC = () => {
           <div className={styles.storyGrid}>
             <div className={styles.storyContent}>
               <div className={styles.storyBlock}>
-                <h3 className={styles.storyTitle}>Our Humble Beginnings</h3>
+                <h3 className={styles.storyTitle}>Mission</h3>
                 <p className={styles.storyText}>
-                  Founded in 2007, we started as a small team of passionate professionals dedicated to helping organizations navigate the complexities of digital transformation. What began as a modest consultancy has grown into a global leader in organizational excellence.
+                  To inspire and empower individuals and communities through motivation, leadership development, coaching and strategic engagement, unlocking potential and creating lasting positive change.
                 </p>
               </div>
               
               <div className={styles.storyBlock}>
-                <h3 className={styles.storyTitle}>Our Mission</h3>
-                <p className="text-gray-600 leading-relaxed">
-                  To inspire and empower individuals and communities through motivation, leadership development, coaching and strategic engagement, unlocking potential and creating lasting positive change.
+                <h3 className={styles.storyTitle}>Vision</h3>
+                <p className={styles.storyText}>
+                  To be a global leader in personal, leadership and community transformation, raising empowered leaders who shape a just, prosperous and purpose-driven society.
                 </p>
               </div>
             </div>

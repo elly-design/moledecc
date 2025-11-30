@@ -60,7 +60,7 @@ export default function Navbar() {
     <header className={`${styles.navbar} ${scrolled ? styles.scrolled : ''}`}>
       <div className={styles.navContainer}>
         <Link to="/" className={styles.logo} onClick={() => setMobileMenuOpen(false)}>
-          Moledecc Transformative Kingdom Initiative
+          Moledecc Transformational  Initiative
         </Link>
         
         {/* Desktop Navigation - Always visible on desktop */}
