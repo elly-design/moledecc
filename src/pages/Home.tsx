@@ -19,6 +19,7 @@ import {
 import { useInView } from 'react-intersection-observer';
 // @ts-ignore - CSS Modules typings
 import styles from './Home.module.css';
+import AIChatbox from '../components/AIChatbox';
 
 // Using placeholder images from Unsplash
 const slide1 = 'https://images.unsplash.com/photo-1497366754035-f200968a6e72?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80';
@@ -145,7 +146,7 @@ const TestimonialCard = ({ quote, author, role, active = false }: Testimonial & 
   </motion.div>
 );
 
-export default function Home() {
+const Home = () => {
   const [activeTestimonial, setActiveTestimonial] = useState(0);
   const [ref, inView] = useInView({ threshold: 0.1, triggerOnce: true });
   const [autoPlay, setAutoPlay] = useState(true);
@@ -471,6 +472,9 @@ export default function Home() {
          </div>
        </div>
      </section>
-    </div>
+     <AIChatbox />
+   </div>
   );
-}
+};
+
+export default Home;
