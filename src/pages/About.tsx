@@ -375,18 +375,64 @@ const About: React.FC = () => {
 
           <div className={styles.storyGrid}>
             <div className={styles.storyContent}>
-              <div className={styles.storyBlock}>
-                <h3 className={styles.storyTitle}>Mission</h3>
+              <motion.div 
+                className={styles.storyBlock}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-50px 0px -50px 0px" }}
+                transition={{ duration: 0.6, ease: "easeOut" }}
+              >
+                <div className="mb-4 overflow-hidden rounded-lg shadow-sm border border-gray-100 max-w-[280px] mx-auto">
+                  <img 
+                    src="/images/mission-resized.jpeg" 
+                    alt="Our Mission" 
+                    className="w-full h-28 sm:h-32 object-cover transition-transform duration-200 hover:scale-103"
+                    loading="lazy"
+                    width={400}
+                    height={267}
+                    onError={(e) => {
+                      const target = e.target as HTMLImageElement;
+                      target.onerror = null;
+                      target.src = 'https://via.placeholder.com/400x267?text=Mission+Image';
+                    }}
+                  />
+                </div>
+                <h3 className={styles.storyTitle}>
+                  <span className="relative inline-block">
+                    <span className="absolute -left-2 -right-2 bottom-1 h-2 bg-blue-100 opacity-70 -z-10"></span>
+                  </span>
+                </h3>
                 <p className={styles.storyText}>
                   To inspire and empower individuals and communities through motivation, leadership development, coaching and strategic engagement, unlocking potential and creating lasting positive change.
                 </p>
-              </div>
+              </motion.div>
               
-              <div className={styles.storyBlock}>
-                <h3 className={styles.storyTitle}>Vision</h3>
-                <p className={styles.storyText}>
-                  To be a global leader in personal, leadership and community transformation, raising empowered leaders who shape a just, prosperous and purpose-driven society.
-                </p>
+              <div className={`relative group bg-gradient-to-br from-blue-50 to-white p-6 rounded-2xl shadow-md border border-blue-100`}>
+                <div className="flex flex-col md:flex-row items-center gap-6">
+                  <div className="w-full md:w-1/3 lg:w-1/4">
+                    <div className="overflow-hidden rounded-lg shadow-sm border border-gray-100">
+                      <img 
+                        src="/images/vision-resized.jpeg" 
+                        alt="Our Vision" 
+                        className="w-full h-36 sm:h-40 object-cover transition-transform duration-200 hover:scale-103"
+                        loading="lazy"
+                        width={300}
+                        height={200}
+                      />
+                    </div>
+                  </div>
+                  <div className="w-full md:w-2/3 lg:w-3/4">
+                    <h3 className="text-2xl font-bold text-gray-800 mt-2 mb-4 relative inline-block">
+                      <span className="relative z-10 px-4">
+                        Our Vision
+                        <span className="absolute bottom-0 left-1/2 w-16 h-1 bg-blue-500 transform -translate-x-1/2 -z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
+                      </span>
+                    </h3>
+                    <p className="text-gray-600 leading-relaxed text-left">
+                      To be a global leader in personal, leadership and community transformation, raising empowered leaders who shape a just, prosperous and purpose-driven society.
+                    </p>
+                  </div>
+                </div>
               </div>
             </div>
 
