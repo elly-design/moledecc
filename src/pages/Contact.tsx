@@ -118,7 +118,7 @@ const Contact = () => {
     {
       icon: PhoneIcon,
       title: '',
-      description: '+254723463564 / +254789618945',
+      description: '+254723463564\n+254789618945',
       href: 'tel:+254723463564'
     },
     {

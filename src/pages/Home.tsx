@@ -28,7 +28,8 @@ const slide3 = 'https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?ixl
 
 // Types
 type FeatureCardProps = {
-  icon: React.ComponentType<{ className?: string }>;
+  icon?: React.ComponentType<{ className?: string }>;
+  image?: string;
   title: string;
   description: string;
   delay: number;
@@ -75,7 +76,7 @@ const AnimatedCounter = ({ value, suffix = '' }: { value: number; suffix?: strin
   return <span ref={ref} className={styles.statNumber}>{count.toLocaleString()}{suffix}</span>;
 };
 
-const FeatureCard = ({ icon: Icon, title, description, delay }: FeatureCardProps) => {
+const FeatureCard = ({ icon: Icon, image, title, description, delay }: FeatureCardProps) => {
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
@@ -84,18 +85,51 @@ const FeatureCard = ({ icon: Icon, title, description, delay }: FeatureCardProps
       transition={{ duration: 0.5, delay: delay * 0.1 }}
       className={styles.featureCard}
     >
-      <div className={styles.featureIcon}>
-        <Icon className="h-6 w-6" />
+      <div className={image ? styles.featureImageContainer : styles.featureIcon}>
+        {image ? (
+          <img 
+            src={image} 
+            alt={title}
+            className="w-full h-full object-cover object-center"
+            style={{
+              borderRadius: '0.75rem',
+              boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)'
+            }}
+          />
+        ) : Icon ? (
+          <Icon className="h-6 w-6" />
+        ) : null}
       </div>
-      <h3 className={styles.featureTitle}>{title}</h3>
-      <p className={styles.featureText}>{description}</p>
-      <Link 
-        to="/services" 
-        className="mt-auto inline-flex items-center text-primary font-medium hover:text-primary-hover transition-colors group w-fit text-sm"
-      >
-        Learn more
-        <ArrowRightIcon className="ml-1.5 h-3 w-3 transition-transform group-hover:translate-x-0.5" />
-      </Link>
+      <div className={styles.featureContent}>
+        <h3 className={styles.featureTitle} style={{
+          fontSize: '1.25rem',
+          fontWeight: '600',
+          lineHeight: '1.4',
+          color: '#1f2937',
+          marginBottom: '0.75rem'
+        }}>{title}</h3>
+        <p className={styles.featureText} style={{
+          fontSize: '0.95rem',
+          lineHeight: '1.6',
+          color: '#6b7280',
+          marginBottom: '1.5rem',
+          fontWeight: '400'
+        }}>{description}</p>
+        <Link 
+          to="/services" 
+          className="mt-auto inline-flex items-center text-primary font-medium hover:text-primary-hover transition-colors group w-fit text-sm"
+          style={{
+            fontSize: '0.875rem',
+            fontWeight: '500',
+            color: '#3b82f6',
+            textDecoration: 'none',
+            transition: 'color 0.2s ease-in-out'
+          }}
+        >
+          Learn more
+          <ArrowRightIcon className="ml-1.5 h-3 w-3 transition-transform group-hover:translate-x-0.5" />
+        </Link>
+      </div>
     </motion.div>
   );
 };
@@ -197,24 +231,29 @@ const Home = () => {
 
   const features = [
     {
-      icon: LightBulbIcon,
-      title: 'Motivational & Leadership Training',
-      description: 'We provide dynamic training sessions designed to inspire and equip individuals with essential leadership skills. Our programs focus on fostering confidence, strategic thinking and effective communication to help participants thrive in both personal and professional environments.'
-    },
-    {
       icon: UserGroupIcon,
-      title: 'Mentorship & Coaching',
-      description: 'Our tailored mentorship and coaching services guide individuals through personal and career development journeys. We pair practical guidance with actionable strategies to empower growth, unlock potential, and achieve meaningful goals.'
+      title: 'Leadership Training & Workshops',
+      description: 'Comprehensive leadership development programs designed to build essential skills and foster effective leadership practices through interactive workshops and hands-on training.'
     },
     {
-      icon: ChartBarIcon,
-      title: 'Conferences & Workshops',
-      description: 'We organize and facilitate engaging conferences and interactive workshops that promote knowledge-sharing, innovation, and professional networking. Each event is designed to deliver impactful learning experiences for participants from diverse backgrounds.'
+      icon: StarIcon,
+      title: 'Youth Empowerment Forums',
+      description: 'Empowering young people with the skills, confidence, and opportunities to become future leaders and change-makers through targeted forums and engagement programs.'
     },
     {
-      icon: AcademicCapIcon,
-      title: 'Youth Capacity Building',
-      description: 'We focus on empowering young people through targeted programs that enhance skills, build confidence, and prepare them for leadership and entrepreneurial opportunities. Our youth capacity-building initiatives equip the next generation with tools to succeed in an ever-changing world.'
+      image: '/images/women.jpg',
+      title: 'Women In Business & Leadership Forums',
+      description: 'Supporting women in breaking barriers and achieving excellence in business and leadership roles through specialized forums and networking opportunities.'
+    },
+    {
+      image: '/images/gbv.png',
+      title: 'Governance & GBV Awareness Campaigns',
+      description: 'Promoting good governance practices and raising awareness about gender-based violence prevention and response through targeted campaigns and educational initiatives.'
+    },
+    {
+      icon: ClockIcon,
+      title: 'Mentorship & Coaching Programs',
+      description: 'Structured mentorship and coaching programs to support personal and professional growth through one-on-one guidance and group coaching sessions.'
     }
   ];
 
@@ -381,6 +420,7 @@ const Home = () => {
               <FeatureCard
                 key={index}
                 icon={feature.icon}
+                image={feature.image}
                 title={feature.title}
                 description={feature.description}
                 delay={index}

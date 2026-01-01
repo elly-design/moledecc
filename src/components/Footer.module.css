@@ -73,6 +73,25 @@
   opacity: 0.9;
 }
 
+.footerLogo {
+  display: block;
+  margin-bottom: 1rem;
+  text-decoration: none;
+}
+
+.footerLogoImage {
+  height: 60px;
+  width: auto;
+  max-width: 300px;
+  object-fit: contain;
+  opacity: 0.9;
+  transition: opacity 0.3s ease;
+}
+
+.footerLogo:hover .footerLogoImage {
+  opacity: 1;
+}
+
 .tagline {
   font-size: 1rem;
   line-height: 1.75;

@@ -403,7 +403,7 @@ const About: React.FC = () => {
                   </span>
                 </h3>
                 <p className={styles.storyText}>
-                  To inspire and empower individuals and communities through motivation, leadership development, coaching and strategic engagement, unlocking potential and creating lasting positive change.
+                  To be a leading transformational catalyst empowering individuals, institutions and communities to lead with purpose, integrity and impact.
                 </p>
               </motion.div>
               
@@ -742,22 +742,16 @@ const About: React.FC = () => {
                   color: 'bg-gradient-to-br from-amber-500 to-amber-600'
                 },
                 {
-                  name: 'Collaboration',
-                  description: 'We believe in the power of partnership and work closely with our clients to achieve shared success.',
+                  name: 'Empowerment',
+                  description: 'We are committed to empowering individuals and organizations with the tools, knowledge and confidence to achieve their full potential and create lasting impact.',
                   icon: 'users',
                   color: 'bg-gradient-to-br from-indigo-500 to-indigo-600'
                 },
                 {
-                  name: 'Impact',
-                  description: 'We measure our success by the tangible, positive change we create for our clients and communities.',
+                  name: 'Respect',
+                  description: 'We honor the dignity, perspectives and contributions of all individuals, fostering an environment of mutual trust and understanding.',
                   icon: 'chart-bar',
                   color: 'bg-gradient-to-br from-purple-500 to-purple-600'
-                },
-                {
-                  name: 'Continuous Learning',
-                  description: 'We foster a culture of growth, curiosity, and knowledge-sharing to stay at the forefront of our field.',
-                  icon: 'graduation-cap',
-                  color: 'bg-gradient-to-br from-cyan-500 to-cyan-600'
                 }
               ].map((value, index) => (
                 <motion.div 

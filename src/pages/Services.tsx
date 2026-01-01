@@ -26,60 +26,74 @@ interface Service {
 
 const services: Service[] = [
   {
-    name: 'Leadership Transformation',
-    description: 'Develop and empower leaders at all levels to drive organizational success through strategic vision and effective execution.',
+    name: 'Leadership Training & Workshops',
+    description: 'Comprehensive leadership development programs designed to build essential skills and foster effective leadership practices.',
     icon: UserGroupIcon,
     features: [
-      'Executive Coaching',
-      'Leadership Development',
-      'Succession Planning',
-      'Team Alignment',
-      'Change Management'
+      'Leadership Skills Training',
+      'Team Building Workshops',
+      'Communication Excellence',
+      'Strategic Thinking',
+      'Decision Making'
     ],
     color: styles.blueGradient,
     textColor: styles.blueText
   },
   {
-    name: 'Organizational Coaching',
-    description: 'Transform your organization\'s culture and performance through targeted coaching interventions and strategic alignment.',
-    icon: LightBulbIcon,
+    name: 'Youth Empowerment Forums',
+    description: 'Empowering young people with the skills, confidence, and opportunities to become future leaders and change-makers.',
+    icon: StarIcon,
     features: [
-      'Cultural Transformation',
-      'Performance Optimization',
-      'Talent Development',
-      'Employee Engagement',
-      'Organizational Design'
+      'Youth Leadership Programs',
+      'Skill Development Workshops',
+      'Mentorship Opportunities',
+      'Community Engagement',
+      'Career Guidance'
     ],
     color: styles.emeraldGradient,
     textColor: styles.emeraldText
   },
   {
-    name: 'Strategic Planning',
-    description: 'Develop clear, actionable strategies and ensure successful implementation to achieve your business objectives.',
-    icon: ChartBarIcon,
+    name: 'Women in Business & Leadership Forums',
+    description: 'Supporting women in breaking barriers and achieving excellence in business and leadership roles.',
+    icon: GlobeAltIcon,
     features: [
-      'Strategic Planning',
-      'Business Model Innovation',
-      'Market Analysis',
-      'Execution Roadmaps',
-      'Performance Metrics'
+      'Women Leadership Training',
+      'Business Development Skills',
+      'Networking Opportunities',
+      'Career Advancement',
+      'Work-Life Balance Strategies'
     ],
     color: styles.purpleGradient,
     textColor: styles.purpleText
   },
   {
-    name: 'Mentorship',
-    description: 'Build organizational capabilities through structured mentorship and professional development programs.',
-    icon: ClockIcon,
+    name: 'Governance & GBV Awareness Campaigns',
+    description: 'Promoting good governance practices and raising awareness about gender-based violence prevention and response.',
+    icon: LightBulbIcon,
     features: [
-      'Mentorship Programs',
-      'Skills Development',
-      'Knowledge Transfer',
-      'Leadership Pipeline',
-      'Professional Growth'
+      'Governance Training',
+      'GBV Prevention Programs',
+      'Policy Development',
+      'Community Awareness',
+      'Support Systems'
     ],
     color: styles.amberGradient,
     textColor: styles.amberText
+  },
+  {
+    name: 'Mentorship & Coaching Programs',
+    description: 'Structured mentorship and coaching programs to support personal and professional growth.',
+    icon: ClockIcon,
+    features: [
+      'One-on-One Mentoring',
+      'Group Coaching Sessions',
+      'Skills Transfer Programs',
+      'Career Coaching',
+      'Personal Development'
+    ],
+    color: styles.blueGradient,
+    textColor: styles.blueText
   }
 ];
 
