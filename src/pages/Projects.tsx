@@ -10,7 +10,6 @@ type Project = {
   category: string;
   description: string;
   image: string;
-  tags: string[];
   results: string[];
 };
 
@@ -21,8 +20,7 @@ const projects: Project[] = [
     client: 'Educational Institutions',
     category: 'Leadership Development',
     description: 'Our leadership training programs are designed for students, professionals, community leaders, and institutions. The workshops focus on building practical leadership competencies such as communication, decision-making, emotional intelligence, conflict resolution, ethical leadership, and strategic thinking.',
-    image: 'https://images.unsplash.com/photo-1522071820081-009c01201d78?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1000&q=80',
-    tags: ['Leadership', 'Education', 'Professional Development'],
+    image: '/images/leadership.jpg',
     results: [
       'Enhanced leadership confidence and competence',
       'Improved team management and communication skills',
@@ -35,8 +33,7 @@ const projects: Project[] = [
     client: 'Community Organizations',
     category: 'Youth Development',
     description: 'The Youth Empowerment Forum is a dynamic platform that equips young people with leadership skills, life skills, entrepreneurship knowledge, and civic awareness. The forum encourages youth participation in governance, innovation, and community development.',
-    image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1000&q=80',
-    tags: ['Youth', 'Leadership', 'Civic Engagement', 'Entrepreneurship'],
+    image: '/images/empowerment.png',
     results: [
       'Youth leadership and civic engagement',
       'Career guidance and entrepreneurship',
@@ -51,7 +48,6 @@ const projects: Project[] = [
     category: 'Women Empowerment',
     description: 'This initiative is dedicated to empowering women to take up leadership roles in business, governance, and community development. The forum provides training, mentorship, networking opportunities, and advocacy for gender equity.',
     image: 'https://images.unsplash.com/photo-1576091160550-2173dba999ef?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1000&q=80',
-    tags: ['Women', 'Business', 'Leadership', 'Gender Equity'],
     results: [
       'Women entrepreneurship and financial literacy',
       'Leadership confidence and negotiation skills',
@@ -66,7 +62,6 @@ const projects: Project[] = [
     category: 'Governance',
     description: 'Moledecc conducts governance and Gender-Based Violence (GBV) awareness campaigns aimed at promoting accountability, human rights, and safe communities. These campaigns engage communities, institutions, and youth through sensitization forums, advocacy drives, and stakeholder dialogues.',
     image: 'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1000&q=80',
-    tags: ['Governance', 'Human Rights', 'Community Engagement', 'Advocacy'],
     results: [
       'Good governance and civic responsibility',
       'Human rights education',
@@ -81,7 +76,6 @@ const projects: Project[] = [
     category: 'Mentorship',
     description: 'Our mentorship and coaching programs connect participants with experienced mentors and certified coaches to support personal growth, career development, and leadership advancement. The programs are structured, goal-oriented, and impact-driven.',
     image: 'https://images.unsplash.com/photo-1521791136064-7986c2920216?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1000&q=80',
-    tags: ['Mentorship', 'Coaching', 'Personal Development', 'Leadership'],
     results: [
       'One-on-one and group mentorship',
       'Leadership and career coaching',
@@ -93,11 +87,11 @@ const projects: Project[] = [
 
 const categories = [
   'All',
-  'Leadership Training and Workshops',
-  'Youth Empowerment Forum',
-  'Women in Business and Leadership Forum',
-  'Governance and GBV Awareness Campaigns',
-  'Mentorship and Coaching Programs',
+  'Leadership',
+  'Youth',
+  'Women',
+  'Governance',
+  'Mentorship',
 ];
 
 export default function Projects() {
@@ -107,7 +101,14 @@ export default function Projects() {
 
   const filteredProjects = selectedCategory === 'All' 
     ? projects 
-    : projects.filter(project => project.category === selectedCategory);
+    : projects.filter(project => {
+        if (selectedCategory === 'Leadership') return project.category.includes('Leadership');
+        if (selectedCategory === 'Youth') return project.category.includes('Youth');
+        if (selectedCategory === 'Women') return project.category.includes('Women');
+        if (selectedCategory === 'Governance') return project.category.includes('Governance');
+        if (selectedCategory === 'Mentorship') return project.category.includes('Mentorship');
+        return false;
+      });
 
   // Close modal on escape key press
   useEffect(() => {
@@ -194,9 +195,6 @@ export default function Projects() {
             onClick={() => openModal(project)}
           >
             <div className={styles.projectImageContainer}>
-              <span className={styles.projectCategory}>
-                {project.category.split(' ')[0]}
-              </span>
               <img
                 src={project.image}
                 alt={project.title}
@@ -210,13 +208,6 @@ export default function Projects() {
               <p className={styles.projectDescription}>
                 {project.description}
               </p>
-              <div className={styles.projectTags}>
-                {project.tags.map((tag) => (
-                  <span key={tag} className={styles.tag}>
-                    {tag}
-                  </span>
-                ))}
-              </div>
               <span className={styles.projectLink}>
                 View case study
                 <ArrowRightIcon className={styles.linkIcon} />

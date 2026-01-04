@@ -153,7 +153,7 @@ const Footer = () => {
                 Moledecc Leadership Transformational Initiative & Associates
               </Link>
               <p className={styles.tagline}>
-                Making your inner world, your outside reality.
+                Empowering Change, Transforming Leaders.
               </p>
             </div>
             <div className={styles.socialLinks}>
