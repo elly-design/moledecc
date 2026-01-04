@@ -17,98 +17,87 @@ type Project = {
 const projects: Project[] = [
   {
     id: 1,
-    title: 'Global Leadership Transformation',
-    client: 'Fortune 500 Technology Firm',
+    title: 'Leadership Training and Workshops',
+    client: 'Educational Institutions',
     category: 'Leadership Development',
-    description: 'A comprehensive leadership development program for senior executives across 15 countries, focusing on strategic thinking and innovation.',
+    description: 'Our leadership training programs are designed for students, professionals, community leaders, and institutions. The workshops focus on building practical leadership competencies such as communication, decision-making, emotional intelligence, conflict resolution, ethical leadership, and strategic thinking.',
     image: 'https://images.unsplash.com/photo-1522071820081-009c01201d78?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1000&q=80',
-    tags: ['Leadership', 'Global', 'Strategy'],
+    tags: ['Leadership', 'Education', 'Professional Development'],
     results: [
-      '35% increase in leadership effectiveness scores',
-      'Improved cross-functional collaboration',
-      'Successful implementation of 12 strategic initiatives'
+      'Enhanced leadership confidence and competence',
+      'Improved team management and communication skills',
+      'Strong ethical and values-based leadership practices'
     ]
   },
   {
     id: 2,
-    title: 'Organizational Restructuring',
-    client: 'Leading Healthcare Provider',
-    category: 'Organizational Design',
-    description: 'Redesigned organizational structure to improve efficiency and patient care delivery across 25 facilities.',
-    image: 'https://images.unsplash.com/photo-1576091160550-2173dba999ef?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1000&q=80',
-    tags: ['Healthcare', 'Restructuring', 'Efficiency'],
+    title: 'Youth Empowerment Forum',
+    client: 'Community Organizations',
+    category: 'Youth Development',
+    description: 'The Youth Empowerment Forum is a dynamic platform that equips young people with leadership skills, life skills, entrepreneurship knowledge, and civic awareness. The forum encourages youth participation in governance, innovation, and community development.',
+    image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1000&q=80',
+    tags: ['Youth', 'Leadership', 'Civic Engagement', 'Entrepreneurship'],
     results: [
-      '22% improvement in operational efficiency',
-      'Reduced administrative costs by 18%',
-      'Enhanced patient satisfaction scores'
+      'Youth leadership and civic engagement',
+      'Career guidance and entrepreneurship',
+      'Life skills and personal development',
+      'Talent identification and mentorship'
     ]
   },
   {
     id: 3,
-    title: 'Digital Transformation',
-    client: 'Financial Services Corporation',
-    category: 'Digital Innovation',
-    description: 'Led the digital transformation initiative to modernize customer experience and internal processes.',
-    image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1000&q=80',
-    tags: ['Digital', 'Innovation', 'Fintech'],
+    title: 'Women in Business and Leadership Forum',
+    client: 'Business Organizations',
+    category: 'Women Empowerment',
+    description: 'This initiative is dedicated to empowering women to take up leadership roles in business, governance, and community development. The forum provides training, mentorship, networking opportunities, and advocacy for gender equity.',
+    image: 'https://images.unsplash.com/photo-1576091160550-2173dba999ef?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1000&q=80',
+    tags: ['Women', 'Business', 'Leadership', 'Gender Equity'],
     results: [
-      '40% increase in digital customer engagement',
-      'Reduced processing time by 60%',
-      'Launched 3 new digital products'
+      'Women entrepreneurship and financial literacy',
+      'Leadership confidence and negotiation skills',
+      'Gender-inclusive leadership',
+      'Networking and peer mentorship'
     ]
   },
   {
     id: 4,
-    title: 'Talent Development Program',
-    client: 'Manufacturing Conglomerate',
-    category: 'Talent Management',
-    description: 'Developed and implemented a comprehensive talent development framework to build leadership pipeline.',
-    image: 'https://images.unsplash.com/photo-1521791136064-7986c2920216?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1000&q=80',
-    tags: ['Talent', 'Development', 'Leadership'],
+    title: 'Governance and GBV Awareness Campaigns',
+    client: 'Government Agencies',
+    category: 'Governance',
+    description: 'Moledecc conducts governance and Gender-Based Violence (GBV) awareness campaigns aimed at promoting accountability, human rights, and safe communities. These campaigns engage communities, institutions, and youth through sensitization forums, advocacy drives, and stakeholder dialogues.',
+    image: 'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1000&q=80',
+    tags: ['Governance', 'Human Rights', 'Community Engagement', 'Advocacy'],
     results: [
-      '85% employee retention rate',
-      'Promoted 30% of high-potential employees',
-      'Established mentorship program'
+      'Good governance and civic responsibility',
+      'Human rights education',
+      'GBV prevention and awareness',
+      'Community engagement and advocacy'
     ]
   },
   {
     id: 5,
-    title: 'Cultural Transformation',
-    client: 'Retail Chain',
-    category: 'Culture Change',
-    description: 'Led a cultural transformation initiative to foster innovation and customer-centric mindset.',
-    image: 'https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1000&q=80',
-    tags: ['Culture', 'Innovation', 'Retail'],
+    title: 'Mentorship and Coaching Programs',
+    client: 'Educational Institutions',
+    category: 'Mentorship',
+    description: 'Our mentorship and coaching programs connect participants with experienced mentors and certified coaches to support personal growth, career development, and leadership advancement. The programs are structured, goal-oriented, and impact-driven.',
+    image: 'https://images.unsplash.com/photo-1521791136064-7986c2920216?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1000&q=80',
+    tags: ['Mentorship', 'Coaching', 'Personal Development', 'Leadership'],
     results: [
-      'Improved employee engagement by 45%',
-      'Enhanced customer satisfaction scores',
-      'Launched 5 innovation initiatives'
-    ]
-  },
-  {
-    id: 6,
-    title: 'Strategic Planning Initiative',
-    client: 'Non-Profit Organization',
-    category: 'Strategic Planning',
-    description: 'Facilitated strategic planning process to align organizational goals with community impact.',
-    image: 'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1000&q=80',
-    tags: ['Strategy', 'Non-Profit', 'Planning'],
-    results: [
-      'Clear 5-year strategic roadmap',
-      'Increased funding by 60%',
-      'Expanded programs to 3 new regions'
+      'One-on-one and group mentorship',
+      'Leadership and career coaching',
+      'Personal development planning',
+      'Continuous learning and accountability'
     ]
   }
 ];
 
 const categories = [
   'All',
-  'Leadership Development',
-  'Organizational Design',
-  'Digital Innovation',
-  'Talent Management',
-  'Culture Change',
-  'Strategic Planning'
+  'Leadership Training and Workshops',
+  'Youth Empowerment Forum',
+  'Women in Business and Leadership Forum',
+  'Governance and GBV Awareness Campaigns',
+  'Mentorship and Coaching Programs',
 ];
 
 export default function Projects() {

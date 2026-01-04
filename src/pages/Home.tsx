@@ -224,9 +224,8 @@ const Home = () => {
 
   const stats: StatItem[] = [
     { value: 15, suffix: '+', label: 'Years Experience' },
-    { value: 200, suffix: '+', label: 'Projects Completed' },
     { value: 98, suffix: '%', label: 'Client Satisfaction' },
-    { value: 50, suffix: '+', label: 'Team Members' },
+    { value: 50, suffix: '+', label: 'Happy Clients' },
   ];
 
   const features = [
@@ -360,12 +359,21 @@ const Home = () => {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.4 }}
               >
-                <Link 
-                  to="/contact" 
-                  className={`${styles.sliderButton} ${styles.sliderButtonPrimary}`}
-                >
-                  {slides[currentSlide].button1}
-                </Link>
+                {slides[currentSlide].button1 === 'Our Services' ? (
+                  <Link 
+                    to="/services" 
+                    className={`${styles.sliderButton} ${styles.sliderButtonPrimary}`}
+                  >
+                    {slides[currentSlide].button1}
+                  </Link>
+                ) : (
+                  <Link 
+                    to="/contact" 
+                    className={`${styles.sliderButton} ${styles.sliderButtonPrimary}`}
+                  >
+                    {slides[currentSlide].button1}
+                  </Link>
+                )}
                 <Link 
                   to="/about" 
                   className={`${styles.sliderButton} ${styles.sliderButtonSecondary}`}
@@ -399,10 +407,178 @@ const Home = () => {
             <button
               key={index}
               onClick={() => goToSlide(index)}
-              className={`${styles.sliderDot} ${index === currentSlide ? styles.sliderDotActive : ''}`}
-              aria-label={`Go to slide ${index + 1}`}
             />
           ))}
+        </div>
+      </section>
+
+      {/* About Us Section */}
+      <section className={styles.aboutSection}>
+        <div className="container">
+          <motion.div 
+            className="text-center mb-20"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+          >
+            <h2 className={styles.aboutTitle}>About Us</h2>
+            <div className={styles.aboutUnderline}></div>
+          </motion.div>
+
+          <div className={styles.aboutContent}>
+            <motion.div 
+              className={styles.aboutText}
+              initial={{ opacity: 0, x: -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+            >
+              <h3 className={styles.aboutSubtitle}></h3>
+              <p className={styles.aboutDescription}>
+                Moledecc Leadership Transformation Initiative & Associates is a leadership development and social transformation organization dedicated to empowering individuals and communities through knowledge, mentorship and advocacy. We partner with schools, community-based organizations, corporate institutions, government agencies and civil society to deliver high-impact leadership and empowerment programs.
+              </p>
+              <p className={styles.aboutDescription}>
+                Our approach blends practical leadership skills, ethical governance principles, gender inclusion and youth development to create well-rounded leaders who are prepared to navigate real-world challenges.
+              </p>
+              
+              <motion.div 
+                className={styles.aboutStats}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: 0.4 }}
+              >
+                <div className={styles.aboutStat}>
+                  <div className={styles.aboutStatIcon}>🎯</div>
+                  <div className={styles.aboutStatContent}>
+                    <h4>Leadership Development</h4>
+                    <p>Building tomorrow's leaders today</p>
+                  </div>
+                </div>
+                <div className={styles.aboutStat}>
+                  <div className={styles.aboutStatIcon}>🤝</div>
+                  <div className={styles.aboutStatContent}>
+                    <h4>Community Empowerment</h4>
+                    <p>Strengthening communities together</p>
+                  </div>
+                </div>
+                <div className={styles.aboutStat}>
+                  <div className={styles.aboutStatIcon}>⚖️</div>
+                  <div className={styles.aboutStatContent}>
+                    <h4>Ethical Governance</h4>
+                    <p>Promoting integrity and excellence</p>
+                  </div>
+                </div>
+              </motion.div>
+            </motion.div>
+
+            <motion.div 
+              className={`${styles.aboutVisual}`}
+              style={{ marginTop: '3rem' }}
+              initial={{ opacity: 0, x: 30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.3 }}
+            >
+              <div className={styles.aboutImageContainer}>
+                <div className={styles.aboutImageOverlay}></div>
+                <div className={styles.aboutImageContent}>
+                  <div className={styles.aboutImageIcon}>🌟</div>
+                  <h4>Transforming Lives</h4>
+                  <p>Through Leadership Excellence</p>
+                </div>
+              </div>
+            </motion.div>
+          </div>
+
+          <motion.div 
+            className={styles.aboutCta}
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.5 }}
+          >
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Why Choose Moledecc Section */}
+      <section className={styles.whyChooseSection}>
+        <div className="container">
+          <motion.div 
+            className="text-center mb-16"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+          >
+            <h2 className={styles.whyChooseTitle}>Why Choose Moledecc</h2>
+            <p className={styles.whyChooseSubtitle} style={{ marginBottom: '3rem' }}>
+              We combine expertise, experience and ethical leadership development to create lasting impact
+            </p>
+          </motion.div>
+
+          <div className={styles.whyChooseGrid}>
+            {[
+              {
+                icon: '👥',
+                title: 'Experienced Facilitators and Mentors',
+                description: 'Our team brings decades of combined experience in leadership development, organizational transformation, and capacity building.',
+                color: 'from-blue-500 to-blue-600'
+              },
+              {
+                icon: '🌍',
+                title: 'Community-Centered and Inclusive Programs',
+                description: 'We design programs that embrace diversity, foster inclusion and strengthen community bonds through collaborative learning.',
+                color: 'from-green-500 to-green-600'
+              },
+              {
+                icon: '🎯',
+                title: 'Practical, Results-Oriented Approach',
+                description: 'Our methodologies focus on real-world applications, ensuring immediate impact and measurable outcomes for participants.',
+                color: 'from-purple-500 to-purple-600'
+              },
+              {
+                icon: '⚖️',
+                title: 'Strong Focus on Ethics, Governance and Impact',
+                description: 'We integrate ethical leadership principles and good governance practices into all our transformation programs.',
+                color: 'from-amber-500 to-amber-600'
+              },
+              {
+                icon: '🌱',
+                title: 'Commitment to Sustainable Leadership Development',
+                description: 'We build lasting leadership capabilities that continue to grow and evolve long after our programs conclude.',
+                color: 'from-emerald-500 to-emerald-600'
+              }
+            ].map((item, index) => (
+              <motion.div
+                key={index}
+                className={styles.whyChooseCard}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
+                whileHover={{ 
+                  y: -10, 
+                  scale: 1.02,
+                  boxShadow: '0 20px 40px rgba(0, 0, 0, 0.15)'
+                }}
+              >
+                <div className={`${styles.whyChooseIcon} bg-gradient-to-br ${item.color}`}>
+                  <span className="text-3xl">{item.icon}</span>
+                </div>
+                <h3 className={styles.whyChooseCardTitle}>{item.title}</h3>
+                <p className={styles.whyChooseCardDescription}>{item.description}</p>
+                <div className={styles.whyChooseCardHover}>
+                  <span className={styles.whyChooseCardText}>Learn More</span>
+                  <svg className={styles.whyChooseCardArrow} width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M5 12h14m-7-7l7 7-7 7" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                  </svg>
+                </div>
+              </motion.div>
+            ))}
+          </div>
         </div>
       </section>
 
@@ -412,7 +588,7 @@ const Home = () => {
           <div className="text-center mb-16">
             <h2 className="section-title">Our Core Services</h2>
             <p className="section-subtitle">
-              Empowering individuals and organizations through transformative leadership, mentorship, and capacity building initiatives.
+              Empowering individuals and organizations through transformative leadership, mentorship and capacity building initiatives.
             </p>
           </div>
           <div className={styles.featuresGrid}>
