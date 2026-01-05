@@ -69,7 +69,7 @@ export default function Navbar() {
             color: '#1e3a8a', 
             fontFamily: 'Georgia, serif', 
             fontWeight: '700', 
-            fontSize: '1.4rem',
+            fontSize: isMobile ? '1.1rem' : '1.4rem',
             letterSpacing: '0.5px',
             marginLeft: '12px',
             textTransform: 'lowercase',

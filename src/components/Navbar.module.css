@@ -157,6 +157,16 @@
     display: none;
   }
   
+  /* Ensure logo is visible on mobile */
+  .logo {
+    display: flex !important;
+    align-items: center !important;
+  }
+  
+  .logoImage {
+    height: 40px !important;
+  }
+  
   /* Show mobile menu button on mobile */
   .mobileMenuButton {
     display: flex;

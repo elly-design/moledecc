@@ -91,31 +91,12 @@ app.post('/api/send-email', async (req, res) => {
             <p style="margin: 10px 0 0;">Moledecc Leadership Transformational Initiative & Associates</p>
           </div>
 
-            <div style="text-align: center; margin: 30px 0;">
-              <a href="tel:+254789618945" style="
-                background: #1e40af; 
-                color: white; 
-                padding: 12px 30px; 
-                text-decoration: none; 
-                border-radius: 6px; 
-                display: inline-block;
-                font-weight: bold;
-              ">
-                Call Us Now
-              </a>
+          <div style="padding: 30px; background: #f9fafb;">
+            <h2 style="color: #1e40af; margin-bottom: 20px;">Dear ${formData.name},</h2>
+            
+            <p style="margin-bottom: 20px;">Thank you for reaching out to Moledecc Leadership Transformational Initiative & Associates. We have received your message and will get back to you shortly.</p>
             </div>
             
-            <div style="background: white; padding: 20px; border-radius: 8px;">
-              <h3 style="color: #1e40af; margin-bottom: 15px;">Contact Information</h3>
-              <p><strong>Phone:</strong> +254723463564 / +254789618945</p>
-              <p><strong>Email:</strong> moledecc2@gmail.com</p>
-              <p><strong>Location:</strong> Mombasa, Kenya</p>
-              <p><strong>Working Hours:</strong></p>
-              <p>Monday - Friday: 9:00 AM - 6:00 PM</p>
-              <p>Saturday: 10:00 AM - 2:00 PM</p>
-            </div>
-          </div>
-          
           <div style="background: #1e3a8a; color: white; padding: 20px; text-align: center;">
             <p style="margin: 0;">© Moledecc Leadership Transformational Initiative & Associates</p>
             <p style="margin: 5px 0 0;">Empowering Change, Transforming Leaders</p>
