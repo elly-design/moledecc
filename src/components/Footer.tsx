@@ -142,16 +142,16 @@ const Footer = () => {
           {/* Brand and Social Section */}
           <div className={styles.brandSection}>
             <div className={styles.brandContent}>
-              <Link to="/" className={styles.footerLogo}>
+              <div className={styles.footerLogo}>
                 <img 
                   src="/images/moledecc.png" 
                   alt="Moledecc Leadership Transformational Initiative & Associates"
                   className={styles.footerLogoImage}
                 />
-              </Link>
-              <Link to="/" className={styles.logo}>
+              </div>
+              <div className={styles.logo}>
                 Moledecc Leadership Transformational Initiative & Associates
-              </Link>
+              </div>
               <p className={styles.tagline}>
                 Empowering Change, Transforming Leaders.
               </p>

@@ -1,5 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { Link } from 'react-router-dom';
 import styles from '../styles/About.module.css';
 
 // Use the base motion components directly
@@ -813,10 +814,10 @@ const About: React.FC = () => {
         <p className={styles.ctaDescription}>
           Get in touch with our team to discuss how we can help you achieve your business goals.
         </p>
-        <a href="#contact" className={styles.ctaButton}>
+        <Link to="/contact" className={styles.ctaButton}>
           Contact Us
           {typeof window !== 'undefined' && window.innerWidth >= 768 && <FaArrowRight />}
-        </a>
+        </Link>
       </div>
     </div>
   );
