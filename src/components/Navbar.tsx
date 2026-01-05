@@ -65,6 +65,19 @@ export default function Navbar() {
             alt="Moledecc Leadership Transformational Initiative & Associates"
             className={styles.logoImage}
           />
+          <span style={{ 
+            color: '#1e3a8a', 
+            fontFamily: 'Georgia, serif', 
+            fontWeight: '700', 
+            fontSize: '1.4rem',
+            letterSpacing: '0.5px',
+            marginLeft: '12px',
+            textTransform: 'lowercase',
+            fontVariant: 'small-caps',
+            textShadow: '0px 1px 2px rgba(0,0,0,0.1)'
+          }}>
+            moledecc
+          </span>
         </Link>
 
         {/* Desktop Navigation - Always visible on desktop */}
@@ -80,11 +93,13 @@ export default function Navbar() {
               {item.name}
             </Link>
           ))}
-          <Link
-            to="/contact"
+          <a
+            href="https://wa.me/254789618945"
+            target="_blank"
+            rel="noopener noreferrer"
             className={`${styles.navLink} ${styles.ctaButton} ${styles.ctaButtonWithIcon}`}
           >
-            Get in Touch
+            Book Appointment
             {!isMobile && (
               <svg 
                 className={styles.ctaIcon} 
@@ -102,7 +117,7 @@ export default function Navbar() {
                 <polyline points="12 5 19 12 12 19"></polyline>
               </svg>
             )}
-          </Link>
+          </a>
         </nav>
 
         {/* Mobile menu button - Only shown on mobile */}
@@ -143,13 +158,15 @@ export default function Navbar() {
                 {item.name}
               </Link>
             ))}
-            <Link
-              to="/contact"
+            <a
+              href="https://wa.me/254789618945"
+              target="_blank"
+              rel="noopener noreferrer"
               className={`${styles.mobileNavLink} ${styles.mobileCtaButton}`}
               onClick={() => setMobileMenuOpen(false)}
             >
-              Get in Touch
-            </Link>
+              Book Appointment
+            </a>
           </div>
         </div>
       </div>

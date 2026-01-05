@@ -27,9 +27,9 @@ type FormData = {
 
 const services = [
   { id: 'leadership', name: 'Leadership Transformation' },
-  { id: 'org-coaching', name: 'Organizational Coaching' },
+  { id: 'org-coaching', name: 'Youth Empowerment Forums' },
   { id: 'mentorship', name: 'Mentorship & Capacity Building' },
-  { id: 'strategy', name: 'Strategic Planning & Execution' },
+  { id: 'strategy', name: 'Women in Business & Leadership Forums' },
   { id: 'other', name: 'Other (Please specify in message)' },
 ];
 
@@ -88,7 +88,7 @@ const Contact = () => {
     return Object.keys(newErrors).length === 0;
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     
     if (!validateForm()) {
@@ -97,21 +97,57 @@ const Contact = () => {
     
     setIsSubmitting(true);
     
-    // Simulate API call
-    setTimeout(() => {
-      console.log('Form submitted:', formData);
-      setIsSubmitting(false);
-      setIsSubmitted(true);
-      // Reset form
-      setFormData({
-        name: '',
-        email: '',
-        phone: '',
-        company: '',
-        service: '',
-        message: ''
+    try {
+      // Get the selected service name
+      const getServiceName = (serviceId: string) => {
+        const services = [
+          { id: 'leadership', name: 'Leadership Transformation' },
+          { id: 'org-coaching', name: 'Youth Empowerment Forums' },
+          { id: 'mentorship', name: 'Mentorship & Capacity Building' },
+          { id: 'strategy', name: 'Women in Business & Leadership Forums' },
+          { id: 'other', name: 'Other (Please specify in message)' },
+        ];
+        const service = services.find(s => s.id === serviceId);
+        return service ? service.name : serviceId;
+      };
+
+      // Send email using backend API
+      const response = await fetch('http://localhost:5000/api/send-email', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          formData: {
+            ...formData,
+            service: getServiceName(formData.service)
+          },
+          adminEmail: 'ellyman2021@gmail.com',
+          senderEmail: formData.email
+        }),
       });
-    }, 1500);
+
+      if (response.ok) {
+        console.log('Form submitted successfully:', formData);
+        setIsSubmitting(false);
+        setIsSubmitted(true);
+        // Reset form
+        setFormData({
+          name: '',
+          email: '',
+          phone: '',
+          company: '',
+          service: '',
+          message: ''
+        });
+      } else {
+        throw new Error('Failed to send email');
+      }
+    } catch (error) {
+      console.error('Error submitting form:', error);
+      setIsSubmitting(false);
+      alert('There was an error submitting your message. Please try again or contact us directly.');
+    }
   };
 
   const contactInfo = [
@@ -282,7 +318,7 @@ const Contact = () => {
                         value={formData.name}
                         onChange={handleChange}
                         className={`${styles.formControl} ${errors.name ? 'border-red-300' : ''}`}
-                        placeholder="John Doe"
+                        placeholder="Full Name"
                       />
                       {errors.name && (
                         <p className={styles.errorMessage}>{errors.name}</p>
@@ -300,7 +336,7 @@ const Contact = () => {
                         value={formData.email}
                         onChange={handleChange}
                         className={`${styles.formControl} ${errors.email ? 'border-red-300' : ''}`}
-                        placeholder="you@example.com"
+                        placeholder="Email"
                       />
                       {errors.email && (
                         <p className={styles.errorMessage}>{errors.email}</p>
@@ -318,7 +354,7 @@ const Contact = () => {
                         value={formData.phone}
                         onChange={handleChange}
                         className={styles.formControl}
-                        placeholder="+254723463564"
+                        placeholder="Phone Number"
                       />
                     </div>
                     
