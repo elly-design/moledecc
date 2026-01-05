@@ -246,7 +246,7 @@ const Footer = () => {
       <div className={styles.bottomBar}>
         <div className={styles.bottomContent}>
           <p className={styles.copyright}>
-            &copy; {currentYear} MOLEDECC. All rights reserved.
+            &copy; {currentYear} MOLEDECC. Empowering Change, Transforming Leaders.
           </p>
           <div className={styles.legalLinks}>
             {legalLinks.map((item, index) => (
