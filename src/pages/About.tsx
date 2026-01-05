@@ -45,7 +45,8 @@ import {
   FaBuilding,
   FaMapMarkerAlt,
   FaExternalLinkAlt,
-  FaDownload
+  FaDownload,
+  FaEye
 } from 'react-icons/fa';
 import { FaLinkedin, FaTwitter, FaGithub } from 'react-icons/fa';
 import Journey from '../components/Journey';
@@ -383,22 +384,13 @@ const About: React.FC = () => {
                 viewport={{ once: true, margin: "-50px 0px -50px 0px" }}
                 transition={{ duration: 0.6, ease: "easeOut" }}
               >
-                <div className="mb-4 overflow-hidden rounded-lg shadow-sm border border-gray-100 max-w-[280px] mx-auto">
-                  <img 
-                    src="/images/mission-resized.jpeg" 
-                    alt="Our Mission" 
-                    className="w-full h-28 sm:h-32 object-cover transition-transform duration-200 hover:scale-103"
-                    loading="lazy"
-                    width={400}
-                    height={267}
-                    onError={(e) => {
-                      const target = e.target as HTMLImageElement;
-                      target.onerror = null;
-                      target.src = 'https://via.placeholder.com/400x267?text=Mission+Image';
-                    }}
-                  />
+                <div className="mb-6 flex justify-center">
+                  <div className="w-20 h-20 sm:w-24 sm:h-24 bg-gradient-to-br from-blue-500 to-blue-600 rounded-2xl flex items-center justify-center shadow-lg border border-blue-100">
+                    <FaLightbulb className="w-10 h-10 sm:w-12 sm:h-12 text-white" />
+                  </div>
                 </div>
                 <h3 className={styles.storyTitle}>
+                  Our Mission
                   <span className="relative inline-block">
                     <span className="absolute -left-2 -right-2 bottom-1 h-2 bg-blue-100 opacity-70 -z-10"></span>
                   </span>
@@ -408,53 +400,49 @@ const About: React.FC = () => {
                 </p>
               </motion.div>
               
-              <div className={`relative group bg-gradient-to-br from-blue-50 to-white p-6 rounded-2xl shadow-md border border-blue-100`}>
-                <div className="flex flex-col md:flex-row items-center gap-6">
-                  <div className="w-full md:w-1/3 lg:w-1/4">
-                    <div className="overflow-hidden rounded-lg shadow-sm border border-gray-100">
-                      <img 
-                        src="/images/vision-resized.jpeg" 
-                        alt="Our Vision" 
-                        className="w-full h-36 sm:h-40 object-cover transition-transform duration-200 hover:scale-103"
-                        loading="lazy"
-                        width={300}
-                        height={200}
-                      />
-                    </div>
-                  </div>
-                  <div className="w-full md:w-2/3 lg:w-3/4">
-                    <h3 className="text-2xl font-bold text-gray-800 mt-2 mb-4 relative inline-block">
-                      <span className="relative z-10 px-4">
-                        Our Vision
-                        <span className="absolute bottom-0 left-1/2 w-16 h-1 bg-blue-500 transform -translate-x-1/2 -z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
-                      </span>
-                    </h3>
-                    <p className="text-gray-600 leading-relaxed text-left">
-                      To be a global leader in personal, leadership and community transformation, raising empowered leaders who shape a just, prosperous and purpose-driven society.
-                    </p>
+              <motion.div 
+                className={styles.storyBlock}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-50px 0px -50px 0px" }}
+                transition={{ duration: 0.6, ease: "easeOut", delay: 0.2 }}
+              >
+                <div className="mb-6 flex justify-center">
+                  <div className="w-20 h-20 sm:w-24 sm:h-24 bg-gradient-to-br from-blue-500 to-blue-600 rounded-2xl flex items-center justify-center shadow-lg border border-blue-100">
+                    <FaEye className="w-10 h-10 sm:w-12 sm:h-12 text-white" />
                   </div>
                 </div>
-              </div>
+                <h3 className={styles.storyTitle}>
+                  Our Vision
+                  <span className="relative inline-block">
+                    <span className="absolute -left-2 -right-2 bottom-1 h-2 bg-blue-100 opacity-70 -z-10"></span>
+                  </span>
+                </h3>
+                <p className={styles.storyText}>
+                  To be a global leader in personal, leadership and community transformation, raising empowered leaders who shape a just, prosperous and purpose-driven society.
+                </p>
+              </motion.div>
             </div>
 
-            <div className="bg-white p-8 rounded-2xl shadow-lg border border-gray-100">
-              <h3 className="text-2xl font-bold text-gray-900 mb-6">Our Milestones</h3>
+            <div className="bg-white p-4 sm:p-6 lg:p-8 rounded-2xl shadow-lg border border-gray-100">
+              <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-4 sm:mb-6 text-center sm:text-left">Our Milestones</h3>
               <div className="relative">
-                <div className="absolute left-5 top-0 bottom-0 w-0.5 bg-gray-200"></div>
+                <div className="absolute left-3 sm:left-5 top-0 bottom-0 w-0.5 bg-gray-200"></div>
                 {milestones.map((milestone, index) => (
                   <div 
                     key={index}
-                    className={`relative pl-12 pb-8 ${index !== milestones.length - 1 ? 'border-l-2 border-gray-200' : ''}`}
+                    className={`relative pl-8 sm:pl-12 pb-6 sm:pb-8 ${index !== milestones.length - 1 ? 'border-l-2 border-gray-200' : ''}`}
                   >
                     <div 
-                      className={`absolute left-0 w-10 h-10 rounded-full flex items-center justify-center text-white font-bold ${activeMilestone === index ? 'bg-blue-600 scale-110' : 'bg-gray-400'}`}
+                      className={`absolute left-0 w-8 h-8 sm:w-10 sm:h-10 rounded-full flex items-center justify-center text-white font-bold text-xs sm:text-sm ${activeMilestone === index ? 'bg-blue-600 scale-110' : 'bg-gray-400'} transition-all duration-300 cursor-pointer`}
                       onMouseEnter={() => setActiveMilestone(index)}
+                      onTouchStart={() => setActiveMilestone(index)}
                     >
                       {milestone.year}
                     </div>
-                    <div className="bg-gray-50 p-4 rounded-lg hover:shadow-md transition-shadow duration-300">
-                      <h4 className="font-semibold text-lg text-gray-900 mb-1">{milestone.title}</h4>
-                      <p className="text-gray-600 text-sm">{milestone.description}</p>
+                    <div className="bg-gray-50 p-3 sm:p-4 rounded-lg hover:shadow-md transition-shadow duration-300 cursor-pointer">
+                      <h4 className="font-semibold text-base sm:text-lg text-gray-900 mb-1">{milestone.title}</h4>
+                      <p className="text-gray-600 text-xs sm:text-sm leading-relaxed">{milestone.description}</p>
                     </div>
                   </div>
                 ))}
@@ -542,26 +530,44 @@ const About: React.FC = () => {
                 transition={{ duration: 0.3 }}
                 className="mt-12 overflow-hidden w-full"
               >
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div className={styles.teamGrid}>
                   {teamMembers.slice(3).map((member) => (
                     <motion.div
                       key={member.id}
-                      className="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300"
+                      className={styles.teamMemberCard}
+                      whileHover={{ y: -5 }}
                       initial={{ opacity: 0, y: 20 }}
                       whileInView={{ opacity: 1, y: 0 }}
                       viewport={{ once: true }}
                       transition={{ duration: 0.5 }}
                       onClick={() => openMemberModal(member)}
                     >
-                      <div className="h-48 bg-gray-100 flex items-center justify-center">
+                      <div className={styles.teamMemberImage}>
                         <FaUser className="w-24 h-24 text-gray-400" />
                       </div>
-                      <div className="p-6">
-                        <h3 className="text-xl font-bold text-gray-900 mb-1">{member.name}</h3>
-                        <p className="text-blue-600 font-medium mb-4">{member.role}</p>
-                        <p className="text-gray-600 line-clamp-3">
+                      <div className={styles.teamMemberContent}>
+                        <h3 className={styles.teamMemberName}>{member.name}</h3>
+                        <span className={styles.teamMemberRole}>{member.role}</span>
+                        <p className={styles.teamMemberBio}>
                           {member.bio}
                         </p>
+                        <div className={styles.teamSocialLinks}>
+                          {member.social?.linkedin && (
+                            <a href={member.social.linkedin} target="_blank" rel="noopener noreferrer" className={styles.teamSocialLink} aria-label={`${member.name}'s LinkedIn`}>
+                              <FaLinkedin />
+                            </a>
+                          )}
+                          {member.social?.twitter && (
+                            <a href={member.social.twitter} target="_blank" rel="noopener noreferrer" className={styles.teamSocialLink} aria-label={`${member.name}'s Twitter`}>
+                              <FaTwitter />
+                            </a>
+                          )}
+                          {member.social?.github && (
+                            <a href={member.social.github} target="_blank" rel="noopener noreferrer" className={styles.teamSocialLink} aria-label={`${member.name}'s GitHub`}>
+                              <FaGithub />
+                            </a>
+                          )}
+                        </div>
                       </div>
                     </motion.div>
                   ))}

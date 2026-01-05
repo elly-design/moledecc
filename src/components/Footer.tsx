@@ -150,10 +150,20 @@ const Footer = () => {
                 />
               </div>
               <div className={styles.logo}>
-                Moledecc Leadership Transformational Initiative & Associates
+                <span className="font-extrabold bg-gradient-to-r from-blue-600 via-blue-500 to-purple-600 bg-clip-text text-transparent leading-tight">
+                  Moledecc
+                </span>
+                <span className="font-light text-gray-300 leading-tight">
+                  {' '}Leadership Transformational Initiative & Associates
+                </span>
               </div>
               <p className={styles.tagline}>
-                Empowering Change, Transforming Leaders.
+                <span className="font-medium bg-gradient-to-r from-amber-400 to-orange-500 bg-clip-text text-transparent">
+                  Empowering Change,
+                </span>
+                <span className="font-light text-gray-300">
+                  {' '}Transforming Leaders.
+                </span>
               </p>
             </div>
             <div className={styles.socialLinks}>
