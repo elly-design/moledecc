@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback } from 'react';
+import { useState, useEffect, useCallback, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { 
@@ -180,10 +180,149 @@ const TestimonialCard = ({ quote, author, role, active = false }: Testimonial & 
   </motion.div>
 );
 
+const VideoSlide = ({ videoSrc, onPlay, videoRef }: { videoSrc: string; onPlay: () => void; videoRef: React.RefObject<HTMLVideoElement | null> }) => {
+  const [isPlaying, setIsPlaying] = useState(false);
+  const [hasError, setHasError] = useState(false);
+
+  const handlePlay = () => {
+    if (videoRef.current) {
+      videoRef.current.play().then(() => {
+        setIsPlaying(true);
+        onPlay();
+      }).catch(() => {
+        setHasError(true);
+      });
+    }
+  };
+
+  const handlePause = () => {
+    if (videoRef.current) {
+      videoRef.current.pause();
+      setIsPlaying(false);
+    }
+  };
+
+  const handleVideoEnded = () => {
+    setIsPlaying(false);
+  };
+
+  const handleVideoError = () => {
+    setHasError(true);
+  };
+
+  return (
+    <div className={styles.videoContainer}>
+      <video
+        ref={videoRef}
+        className={styles.videoSlide}
+        src={videoSrc}
+        onEnded={handleVideoEnded}
+        onError={handleVideoError}
+        playsInline
+        muted={false}
+        preload="auto"
+        controls={false}
+        loop={false}
+        style={{
+          position: 'absolute',
+          top: 0,
+          left: 0,
+          width: '100%',
+          height: '100%',
+          objectFit: 'cover',
+          objectPosition: 'center',
+          zIndex: 1,
+          display: 'block',
+          visibility: 'visible'
+        }}
+      />
+      
+      {!isPlaying && !hasError && (
+        <div className={styles.videoOverlay}>
+        </div>
+      )}
+      
+      {hasError && (
+        <div className={styles.videoOverlay}>
+          <div className={styles.videoText}>
+            <h3>Video Unavailable</h3>
+            <p>Please try again later</p>
+          </div>
+        </div>
+      )}
+      
+      {isPlaying && (
+        <button
+          className={styles.pauseButton}
+          onClick={handlePause}
+          type="button"
+          aria-label="Pause video"
+        >
+          <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="20" cy="20" r="20" fill="rgba(255, 255, 255, 0.9)"/>
+            <rect x="12" y="12" width="6" height="16" fill="#3b82f6"/>
+            <rect x="22" y="12" width="6" height="16" fill="#3b82f6"/>
+          </svg>
+        </button>
+      )}
+    </div>
+  );
+};
+
+// Video Play Button Component
+const VideoPlayButton = ({ onPlay }: { onPlay: () => void }) => {
+  return (
+    <motion.button
+      className={`${styles.sliderButton} ${styles.sliderButtonPrimary} ${styles.videoPlayButton}`}
+      onClick={onPlay}
+      whileHover={{ scale: 1.05 }}
+      whileTap={{ scale: 0.95 }}
+      type="button"
+      aria-label="Play video testimonials"
+    >
+      <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" style={{ marginRight: '0.5rem' }}>
+        <circle cx="10" cy="10" r="10" fill="rgba(255, 255, 255, 0.9)"/>
+        <path d="M7.5 6 L7.5 14 L13 10 Z" fill="currentColor"/>
+      </svg>
+      Play Video
+    </motion.button>
+  );
+};
+
+// Play Video CTA Button Component
+const PlayVideoCTAButton = ({ onClick }: { onClick: () => void }) => {
+  return (
+    <motion.button
+      className={`${styles.sliderButton} ${styles.sliderButtonPrimary}`}
+      onClick={onClick}
+      whileHover={{ scale: 1.05 }}
+      whileTap={{ scale: 0.95 }}
+      type="button"
+      aria-label="Play video testimonials"
+    >
+      <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" style={{ marginRight: '0.5rem' }}>
+        <circle cx="10" cy="10" r="10" fill="rgba(255, 255, 255, 0.9)"/>
+        <path d="M7.5 6 L7.5 14 L13 10 Z" fill="currentColor"/>
+      </svg>
+      Play Video
+    </motion.button>
+  );
+};
+
 const Home = () => {
   const [activeTestimonial, setActiveTestimonial] = useState(0);
   const [ref, inView] = useInView({ threshold: 0.1, triggerOnce: true });
   const [autoPlay, setAutoPlay] = useState(true);
+  const [currentGalleryImage, setCurrentGalleryImage] = useState(0);
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  // Gallery images for slideshow
+  const galleryImages = [
+    { src: '/images/seminar.jpeg', alt: 'Leadership Seminar' },
+    { src: '/images/street.jpeg', alt: 'Community Outreach' },
+    { src: '/images/group2.jpeg', alt: 'Team Leadership' },
+    { src: '/images/group.jpeg', alt: 'Team Leadership' }
+  ];
 
   const testimonials: Testimonial[] = [
     {
@@ -273,7 +412,7 @@ const Home = () => {
       highlight: 'True Potential',
       subtitle: 'Tailored mentorship and coaching to empower growth and achieve meaningful goals.',
       button1: 'Our Services',
-      button2: 'View Portfolio',
+      button2: 'Core Value',
       image: slide2
     },
     {
@@ -284,26 +423,61 @@ const Home = () => {
       button1: 'Contact Us',
       button2: 'Our Process',
       image: slide3
+    },
+    {
+      id: 4,
+      title: 'Hear From Our',
+      highlight: 'Success Stories',
+      subtitle: 'Real testimonials from leaders transformed by our programs and mentorship.',
+      button1: 'Join Us',
+      button2: 'Book Session',
+      video: '/images/testimonials.mp4'
     }
   ];
 
   const [currentSlide, setCurrentSlide] = useState(0);
   const [isAutoPlaying, setIsAutoPlaying] = useState(true);
   const [direction, setDirection] = useState(1);
+  const [isVideoPlaying, setIsVideoPlaying] = useState(false);
 
   const nextSlide = useCallback(() => {
     setDirection(1);
     setCurrentSlide((prev) => (prev === slides.length - 1 ? 0 : prev + 1));
+    setIsVideoPlaying(false);
   }, [slides.length]);
 
   const prevSlide = useCallback(() => {
     setDirection(-1);
     setCurrentSlide((prev) => (prev === 0 ? slides.length - 1 : prev - 1));
+    setIsVideoPlaying(false);
   }, [slides.length]);
 
   const goToSlide = (index: number) => {
     setDirection(index > currentSlide ? 1 : -1);
     setCurrentSlide(index);
+    setIsVideoPlaying(false);
+  };
+
+  const handleVideoPlay = () => {
+    if (videoRef.current) {
+      videoRef.current.play().then(() => {
+        setIsVideoPlaying(true);
+        setIsAutoPlaying(false);
+      }).catch(() => {
+        console.error('Video playback failed');
+      });
+    }
+  };
+
+  const goToVideoSlide = () => {
+    const videoSlideIndex = slides.findIndex(slide => slide.video);
+    if (videoSlideIndex !== -1) {
+      goToSlide(videoSlideIndex);
+      // Auto-play video after slide transition
+      setTimeout(() => {
+        handleVideoPlay();
+      }, 1000); // Wait for slide transition to complete
+    }
   };
 
   // Auto-advance slides
@@ -317,89 +491,190 @@ const Home = () => {
     return () => clearTimeout(timer);
   }, [currentSlide, isAutoPlaying, nextSlide]);
 
+  // Auto-advance gallery slideshow
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setCurrentGalleryImage(prev => (prev + 1) % galleryImages.length);
+    }, 3000); // Change image every 3 seconds
+    
+    return () => clearTimeout(timer);
+  }, [currentGalleryImage, galleryImages.length]);
+
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Hero Slider Section */}
       <section className={styles.sliderContainer}>
         <AnimatePresence initial={false} custom={direction}>
-          <motion.div
-            key={currentSlide}
-            className={styles.sliderSlide}
-            style={{ backgroundImage: `url(${slides[currentSlide].image})` }}
-            initial={{ opacity: 0, x: direction > 0 ? '100%' : '-100%' }}
-            animate={{ opacity: 1, x: 0 }}
-            exit={{ opacity: 0, x: direction > 0 ? '-100%' : '100%' }}
-            transition={{ duration: 0.8, ease: [0.32, 0.72, 0, 1] }}
-          >
-            <div className={styles.sliderOverlay}></div>
-            
-            {/* Content */}
-            <div className={styles.sliderContent}>
-              <motion.h1 
-                className={styles.sliderTitle}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.2 }}
-              >
-                {slides[currentSlide].title} <span style={{ color: '#818cf8' }}>{slides[currentSlide].highlight}</span>
-              </motion.h1>
+          {slides[currentSlide].video ? (
+            <motion.div
+              key={currentSlide}
+              className={styles.sliderSlide}
+              initial={{ opacity: 0, x: direction > 0 ? '100%' : '-100%' }}
+              animate={{ opacity: 1, x: 0 }}
+              exit={{ opacity: 0, x: direction > 0 ? '-100%' : '100%' }}
+              transition={{ duration: 0.8, ease: [0.32, 0.72, 0, 1] }}
+            >
+              <VideoSlide 
+                videoSrc={slides[currentSlide].video} 
+                onPlay={handleVideoPlay}
+                videoRef={videoRef}
+              />
+              <div className={styles.sliderOverlay}></div>
               
-              <motion.p 
-                className={styles.sliderSubtitle}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.3 }}
-              >
-                {slides[currentSlide].subtitle}
-              </motion.p>
-              
-              <motion.div 
-                className={styles.sliderButtons}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.4 }}
-              >
-                {slides[currentSlide].button1 === 'Our Services' ? (
-                  <Link 
-                    to="/services" 
-                    className={`${styles.sliderButton} ${styles.sliderButtonPrimary}`}
-                  >
-                    {slides[currentSlide].button1}
-                  </Link>
-                ) : (
-                  <Link 
-                    to="/contact" 
-                    className={`${styles.sliderButton} ${styles.sliderButtonPrimary}`}
-                  >
-                    {slides[currentSlide].button1}
-                  </Link>
-                )}
-                <Link 
-                  to="/about" 
-                  className={`${styles.sliderButton} ${styles.sliderButtonSecondary}`}
+              {/* Content */}
+              <div className={styles.sliderContent}>
+                <motion.h1 
+                  className={styles.sliderTitle}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: 0.2 }}
                 >
-                  {slides[currentSlide].button2}
-                </Link>
-              </motion.div>
-            </div>
-          </motion.div>
+                  {slides[currentSlide].title} <span style={{ color: '#818cf8' }}>{slides[currentSlide].highlight}</span>
+                </motion.h1>
+                
+                <motion.p 
+                  className={styles.sliderSubtitle}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: 0.3 }}
+                >
+                  {slides[currentSlide].subtitle}
+                </motion.p>
+                
+                <motion.div 
+                  className={styles.sliderButtons}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: 0.4 }}
+                >
+                  {slides[currentSlide].video ? (
+                    <VideoPlayButton onPlay={handleVideoPlay} />
+                  ) : slides[currentSlide].button1 === 'Our Services' ? (
+                    <Link 
+                      to="/services" 
+                      className={`${styles.sliderButton} ${styles.sliderButtonPrimary}`}
+                    >
+                      {slides[currentSlide].button1}
+                    </Link>
+                  ) : (
+                    <Link 
+                      to="/contact" 
+                      className={`${styles.sliderButton} ${styles.sliderButtonPrimary}`}
+                    >
+                      {slides[currentSlide].button1}
+                    </Link>
+                  )}
+                  {slides[currentSlide].button2 === 'Core Value' ? (
+                    <Link 
+                      to="/about#core-values" 
+                      className={`${styles.sliderButton} ${styles.sliderButtonSecondary}`}
+                    >
+                      {slides[currentSlide].button2}
+                    </Link>
+                  ) : slides[currentSlide].button2 === 'Learn More' ? (
+                    <Link 
+                      to="/about#our-journey" 
+                      className={`${styles.sliderButton} ${styles.sliderButtonSecondary}`}
+                    >
+                      {slides[currentSlide].button2}
+                    </Link>
+                  ) : (
+                    <a 
+                      href="https://wa.me/254789618945"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className={`${styles.sliderButton} ${styles.sliderButtonSecondary}`}
+                    >
+                      {slides[currentSlide].button2}
+                    </a>
+                  )}
+                </motion.div>
+              </div>
+            </motion.div>
+          ) : (
+            <motion.div
+              key={currentSlide}
+              className={styles.sliderSlide}
+              style={{ backgroundImage: `url(${slides[currentSlide].image})` }}
+              initial={{ opacity: 0, x: direction > 0 ? '100%' : '-100%' }}
+              animate={{ opacity: 1, x: 0 }}
+              exit={{ opacity: 0, x: direction > 0 ? '-100%' : '100%' }}
+              transition={{ duration: 0.8, ease: [0.32, 0.72, 0, 1] }}
+            >
+              <div className={styles.sliderOverlay}></div>
+              
+              {/* Content */}
+              <div className={styles.sliderContent}>
+                <motion.h1 
+                  className={styles.sliderTitle}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: 0.2 }}
+                >
+                  {slides[currentSlide].title} <span style={{ color: '#818cf8' }}>{slides[currentSlide].highlight}</span>
+                </motion.h1>
+                
+                <motion.p 
+                  className={styles.sliderSubtitle}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: 0.3 }}
+                >
+                  {slides[currentSlide].subtitle}
+                </motion.p>
+                
+                <motion.div 
+                  className={styles.sliderButtons}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: 0.4 }}
+                >
+                  {slides[currentSlide].video ? (
+                    <VideoPlayButton onPlay={handleVideoPlay} />
+                  ) : slides[currentSlide].button1 === 'Our Services' ? (
+                    <Link 
+                      to="/services" 
+                      className={`${styles.sliderButton} ${styles.sliderButtonPrimary}`}
+                    >
+                      {slides[currentSlide].button1}
+                    </Link>
+                  ) : (
+                    <Link 
+                      to="/contact" 
+                      className={`${styles.sliderButton} ${styles.sliderButtonPrimary}`}
+                    >
+                      {slides[currentSlide].button1}
+                    </Link>
+                  )}
+                  {slides[currentSlide].button2 === 'Core Value' ? (
+                    <Link 
+                      to="/about#core-values" 
+                      className={`${styles.sliderButton} ${styles.sliderButtonSecondary}`}
+                    >
+                      {slides[currentSlide].button2}
+                    </Link>
+                  ) : slides[currentSlide].button2 === 'Learn More' ? (
+                    <Link 
+                      to="/about#our-journey" 
+                      className={`${styles.sliderButton} ${styles.sliderButtonSecondary}`}
+                    >
+                      {slides[currentSlide].button2}
+                    </Link>
+                  ) : (
+                    <a 
+                      href="https://wa.me/254789618945"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className={`${styles.sliderButton} ${styles.sliderButtonSecondary}`}
+                    >
+                      {slides[currentSlide].button2}
+                    </a>
+                  )}
+                </motion.div>
+              </div>
+            </motion.div>
+          )}
         </AnimatePresence>
-        
-        {/* Navigation Arrows */}
-        <button 
-          onClick={prevSlide}
-          className={`${styles.sliderArrow} ${styles.sliderArrowPrev}`}
-          aria-label="Previous slide"
-        >
-          <ChevronLeftIcon className="w-6 h-6" />
-        </button>
-        <button 
-          onClick={nextSlide}
-          className={`${styles.sliderArrow} ${styles.sliderArrowNext}`}
-          aria-label="Next slide"
-        >
-          <ChevronRightIcon className="w-6 h-6" />
-        </button>
         
         {/* Dots Navigation */}
         <div className={styles.sliderNav}>
@@ -483,10 +758,25 @@ const Home = () => {
             >
               <div className={styles.aboutImageContainer}>
                 <div className={styles.aboutImageOverlay}></div>
-                <div className={styles.aboutImageContent}>
-                  <div className={styles.aboutImageIcon}>🌟</div>
-                  <h4>Transforming Lives</h4>
-                  <p>Through Leadership Excellence</p>
+                <div className={styles.aboutImageSlideshow}>
+                  <AnimatePresence mode="wait">
+                    <motion.div
+                      key={currentGalleryImage}
+                      className={styles.slideshowImage}
+                      initial={{ opacity: 0, scale: 0.8 }}
+                      animate={{ opacity: 1, scale: 1 }}
+                      exit={{ opacity: 0, scale: 0.8 }}
+                      transition={{ duration: 0.8, ease: "easeInOut" }}
+                      whileHover={{ scale: 1.05 }}
+                    >
+                      <img 
+                        src={galleryImages[currentGalleryImage].src} 
+                        alt={galleryImages[currentGalleryImage].alt} 
+                        className="w-full h-full object-cover rounded-lg" 
+                        style={{ maxHeight: '250px' }} 
+                      />
+                    </motion.div>
+                  </AnimatePresence>
                 </div>
               </div>
             </motion.div>

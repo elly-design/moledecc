@@ -1409,6 +1409,11 @@
   .ctaButton svg {
     display: none; /* Hide arrow icon on mobile */
   }
+  
+  .teamGrid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
 }
 
 /* Team Section */
@@ -1467,10 +1472,10 @@
 
 .teamGrid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-  gap: 2.5rem;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 2rem;
   margin: 4rem auto;
-  max-width: 1400px;
+  max-width: 1200px;
   padding: 0 2rem;
 }
 
@@ -1495,11 +1500,20 @@
 }
 
 .teamMemberImage {
-  height: 250px;
+  width: 100%;
+  height: auto;
   background: #f3f4f6;
   display: flex;
   align-items: center;
   justify-content: center;
+  overflow: visible;
+}
+
+.teamMemberImage img {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  background: #f3f4f6;
 }
 
 .teamMemberContent {

@@ -55,10 +55,10 @@ import Journey from '../components/Journey';
 const teamMembers = [
   {
     id: 1,
-    name: 'Dr. Sarah Johnson',
-    role: 'CEO & Founder',
+    name: 'Rev. Canon Richard Otieno',
+    role: 'Executive Director & Founder',
     bio: '20+ years of experience in organizational leadership and strategic development. Passionate about driving innovation and growth.',
-    image: '/images/team/team-1.jpg',
+    image: '/images/otieno.jpeg',
     social: {
       linkedin: '#',
       twitter: '#',
@@ -68,10 +68,10 @@ const teamMembers = [
   },
   {
     id: 2,
-    name: 'Michael Chen',
-    role: 'CTO',
-    bio: 'Technology visionary with expertise in digital transformation and software architecture. Leads our technical strategy and innovation.',
-    image: '/images/team/team-2.jpg',
+    name: 'Mrs.Rachel Otieno ',
+    role: 'Director',
+    bio: 'Experienced leader with expertise in organizational management and strategic planning. Drives operational excellence and team development.',
+    image: '/images/racheal.png',
     social: {
       linkedin: '#',
       twitter: '#',
@@ -81,10 +81,10 @@ const teamMembers = [
   },
   {
     id: 3,
-    name: 'Amina Diallo',
-    role: 'Head of Operations',
-    bio: 'Operations specialist with a focus on process optimization and team leadership. Ensures seamless project delivery.',
-    image: '/images/team/team-3.jpg',
+    name: 'Rev. Dr. Uzoaku Juliana PhD',
+    role: 'Moledecc Associate Deputy Secretary General- ACCN-Nigeria',
+    bio: 'Distinguished academic and religious leader with extensive experience in organizational administration and strategic coordination. Supports executive leadership in policy development and program implementation.',
+    image: '/images/juliana.jpeg',
     social: {
       linkedin: '#',
       twitter: '#',
@@ -94,10 +94,10 @@ const teamMembers = [
   },
   {
     id: 4,
-    name: 'David Kim',
-    role: 'Lead Developer',
-    bio: 'Full-stack developer with expertise in modern web technologies. Leads our development team in creating robust solutions.',
-    image: '/images/team/team-4.jpg',
+    name: 'Emmanuel Ochieng',
+    role: 'Moledecc Associate & Counseling Psychologist',
+    bio: 'Professional counseling psychologist with expertise in mental health support and therapeutic interventions. Provides compassionate care and psychological guidance for individuals and families.',
+    image: '/images/emmanuel.jpeg',
     social: {
       linkedin: '#',
       github: '#',
@@ -107,10 +107,10 @@ const teamMembers = [
   },
   {
     id: 5,
-    name: 'Emily Rodriguez',
-    role: 'UX/UI Designer',
-    bio: 'Creative designer focused on creating intuitive and beautiful user experiences. Passionate about human-centered design.',
-    image: '/images/team/team-5.jpg',
+    name: 'Rev. Canon Rachel Amani',
+    role: 'Moledecc Associate - Ceritified Mediator',
+    bio: 'Professional mediator with expertise in conflict resolution and alternative dispute resolution. Facilitates constructive dialogue and promotes peaceful agreements between parties.',
+    image: '/images/amani2.jpeg',
     social: {
       linkedin: '#',
       twitter: '#',
@@ -120,15 +120,54 @@ const teamMembers = [
   },
   {
     id: 6,
-    name: 'James Wilson',
-    role: 'Marketing Director',
-    bio: 'Marketing strategist with expertise in digital marketing and brand development. Drives our market presence and growth.',
-    image: '/images/team/team-6.jpg',
+    name: 'Mrs. Caroline Hadassa Maina',
+    role: 'Moledecc Associate & Prof. Leadership Coach',
+    bio: 'Professional leadership coach with expertise in personal development and organizational growth. Empowers individuals and teams to achieve their full potential through strategic guidance and mentorship.',
+    image: '/images/hadassa.jpeg',
     social: {
       linkedin: '#',
       twitter: '#',
       email: 'james@example.com',
       phone: '+1 (555) 678-9012'
+    }
+  },
+  {
+    id: 7,
+    name: 'Mrs. Peninah Mwenda',
+    role: 'Moledecc Associate & Leadership Coach',
+     bio: 'Professional leadership coach with expertise in personal development and organizational growth. Empowers individuals and teams to achieve their full potential through strategic guidance and mentorship.',
+    image: '/images/peninah2.jpeg',
+    social: {
+      linkedin: '#',
+      twitter: '#',
+      email: 'joseph@example.com',
+      phone: '+1 (555) 789-0123'
+    }
+  },
+  {
+    id: 8,
+    name: 'Ven. Dr. Simon Oriedo HSC',
+    role: 'Moledecc Associate',
+    bio: 'Distinguished religious leader and community servant honored with the HSC (Head of State Commendation) for exceptional service to society. Brings extensive experience in spiritual guidance, community development, and humanitarian service to advance Moledecc\'s mission of leadership excellence.',
+    image: '/images/oriedo2.jpeg',
+    social: {
+      linkedin: '#',
+      twitter: '#',
+      email: 'joseph@example.com',
+      phone: '+1 (555) 789-0123'
+    }
+  },
+  {
+    id: 9,
+    name: 'Eliot Owiti', 
+    role: 'Communication Officer',
+    bio: 'Skilled communication professional responsible for managing internal and external communications, media relations, and public outreach strategies to enhance organizational visibility and engagement.',
+    image: '/images/eliot.png',
+    social: {
+      linkedin: '#',
+      twitter: '#',
+      email: 'joseph@example.com',
+      phone: '+1 (555) 789-0123'
     }
   }
 ];
@@ -363,7 +402,7 @@ const About: React.FC = () => {
       </section>
 
       {/* Our Story Section - Full Width */}
-      <div className={styles.fullWidthSection}>
+      <div id="our-journey" className={styles.fullWidthSection}>
         <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
           <div className={styles.sectionHeader}>
             <div className="text-center w-full">
@@ -424,7 +463,7 @@ const About: React.FC = () => {
               </motion.div>
             </div>
 
-            <div className="bg-white p-4 sm:p-6 lg:p-8 rounded-2xl shadow-lg border border-gray-100">
+            <div id="milestones" className="bg-white p-4 sm:p-6 lg:p-8 rounded-2xl shadow-lg border border-gray-100">
               <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-4 sm:mb-6 text-center sm:text-left">Our Milestones</h3>
               <div className="relative">
                 <div className="absolute left-3 sm:left-5 top-0 bottom-0 w-0.5 bg-gray-200"></div>
@@ -492,7 +531,7 @@ const About: React.FC = () => {
                 onClick={() => openMemberModal(member)}
               >
                 <div className={styles.teamMemberImage}>
-                  <FaUser className="w-24 h-24 text-gray-400" />
+                  <img src={member.image} alt={member.name} className="w-24 h-24 object-cover rounded-full" />
                 </div>
                 <div className={styles.teamMemberContent}>
                   <h3 className={styles.teamMemberName}>{member.name}</h3>
@@ -543,7 +582,7 @@ const About: React.FC = () => {
                       onClick={() => openMemberModal(member)}
                     >
                       <div className={styles.teamMemberImage}>
-                        <FaUser className="w-24 h-24 text-gray-400" />
+                        <img src={member.image} alt={member.name} className="w-24 h-24 object-cover rounded-full" />
                       </div>
                       <div className={styles.teamMemberContent}>
                         <h3 className={styles.teamMemberName}>{member.name}</h3>
@@ -694,7 +733,7 @@ const About: React.FC = () => {
       </AnimatePresence>
 
       {/* Core Values - Full Width */}
-      <div className="w-full bg-gradient-to-br from-gray-50 to-gray-100 py-16 md:py-24">
+      <div id="core-values" className="w-full bg-gradient-to-br from-gray-50 to-gray-100 py-16 md:py-24">
         <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div 
             className="text-center pt-16"
