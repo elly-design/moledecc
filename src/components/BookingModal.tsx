@@ -134,7 +134,6 @@ export default function BookingModal({ isOpen, onClose }: BookingModalProps) {
                   <p className={styles.optionDescription}>
                     Get instant connection and quick response through WhatsApp
                   </p>
-                  <span className={styles.optionBadge}>Instant</span>
                 </button>
 
                 <button
@@ -148,7 +147,6 @@ export default function BookingModal({ isOpen, onClose }: BookingModalProps) {
                   <p className={styles.optionDescription}>
                     Fill out a detailed form for comprehensive consultation booking
                   </p>
-                  <span className={styles.optionBadge}>Detailed</span>
                 </button>
               </div>
             </div>
