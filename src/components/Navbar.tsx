@@ -2,6 +2,7 @@
 import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline';
+import BookingModal from './BookingModal';
 import styles from './Navbar.module.css';
 
 const navigation = [
@@ -17,6 +18,7 @@ export default function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
+  const [bookingModalOpen, setBookingModalOpen] = useState(false);
   const location = useLocation();
 
   // Check if the screen is mobile size
@@ -93,10 +95,8 @@ export default function Navbar() {
               {item.name}
             </Link>
           ))}
-          <a
-            href="https://wa.me/254789618945"
-            target="_blank"
-            rel="noopener noreferrer"
+          <button
+            onClick={() => setBookingModalOpen(true)}
             className={`${styles.navLink} ${styles.ctaButton} ${styles.ctaButtonWithIcon}`}
           >
             Book Appointment
@@ -117,7 +117,7 @@ export default function Navbar() {
                 <polyline points="12 5 19 12 12 19"></polyline>
               </svg>
             )}
-          </a>
+          </button>
         </nav>
 
         {/* Mobile menu button - Only shown on mobile */}
@@ -158,18 +158,24 @@ export default function Navbar() {
                 {item.name}
               </Link>
             ))}
-            <a
-              href="https://wa.me/254789618945"
-              target="_blank"
-              rel="noopener noreferrer"
+            <button
+              onClick={() => {
+                setBookingModalOpen(true);
+                setMobileMenuOpen(false);
+              }}
               className={`${styles.mobileNavLink} ${styles.mobileCtaButton}`}
-              onClick={() => setMobileMenuOpen(false)}
             >
               Book Appointment
-            </a>
+            </button>
           </div>
         </div>
       </div>
+      
+      {/* Booking Modal */}
+      <BookingModal 
+        isOpen={bookingModalOpen}
+        onClose={() => setBookingModalOpen(false)}
+      />
     </header>
   );
 }

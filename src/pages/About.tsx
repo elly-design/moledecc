@@ -57,7 +57,6 @@ const teamMembers = [
     id: 1,
     name: 'Rev. Canon Richard Otieno',
     role: 'Executive Director & Founder',
-    bio: '20+ years of experience in organizational leadership and strategic development. Passionate about driving innovation and growth.',
     image: '/images/otieno.jpeg',
     social: {
       linkedin: '#',
@@ -70,7 +69,6 @@ const teamMembers = [
     id: 2,
     name: 'Mrs.Rachel Otieno ',
     role: 'Director',
-    bio: 'Experienced leader with expertise in organizational management and strategic planning. Drives operational excellence and team development.',
     image: '/images/racheal.png',
     social: {
       linkedin: '#',
@@ -83,7 +81,6 @@ const teamMembers = [
     id: 3,
     name: 'Rev. Dr. Uzoaku Juliana PhD',
     role: 'Moledecc Associate Deputy Secretary General- ACCN-Nigeria',
-    bio: 'Distinguished academic and religious leader with extensive experience in organizational administration and strategic coordination. Supports executive leadership in policy development and program implementation.',
     image: '/images/juliana.jpeg',
     social: {
       linkedin: '#',
@@ -96,7 +93,6 @@ const teamMembers = [
     id: 4,
     name: 'Emmanuel Ochieng',
     role: 'Moledecc Associate & Counseling Psychologist',
-    bio: 'Professional counseling psychologist with expertise in mental health support and therapeutic interventions. Provides compassionate care and psychological guidance for individuals and families.',
     image: '/images/emmanuel.jpeg',
     social: {
       linkedin: '#',
@@ -109,7 +105,6 @@ const teamMembers = [
     id: 5,
     name: 'Rev. Canon Rachel Amani',
     role: 'Moledecc Associate - Ceritified Mediator',
-    bio: 'Professional mediator with expertise in conflict resolution and alternative dispute resolution. Facilitates constructive dialogue and promotes peaceful agreements between parties.',
     image: '/images/amani2.jpeg',
     social: {
       linkedin: '#',
@@ -122,7 +117,6 @@ const teamMembers = [
     id: 6,
     name: 'Mrs. Caroline Hadassa Maina',
     role: 'Moledecc Associate & Prof. Leadership Coach',
-    bio: 'Professional leadership coach with expertise in personal development and organizational growth. Empowers individuals and teams to achieve their full potential through strategic guidance and mentorship.',
     image: '/images/hadassa.jpeg',
     social: {
       linkedin: '#',
@@ -135,7 +129,6 @@ const teamMembers = [
     id: 7,
     name: 'Mrs. Peninah Mwenda',
     role: 'Moledecc Associate & Leadership Coach',
-     bio: 'Professional leadership coach with expertise in personal development and organizational growth. Empowers individuals and teams to achieve their full potential through strategic guidance and mentorship.',
     image: '/images/peninah2.jpeg',
     social: {
       linkedin: '#',
@@ -148,7 +141,6 @@ const teamMembers = [
     id: 8,
     name: 'Ven. Dr. Simon Oriedo HSC',
     role: 'Moledecc Associate',
-    bio: 'Distinguished religious leader and community servant honored with the HSC (Head of State Commendation) for exceptional service to society. Brings extensive experience in spiritual guidance, community development, and humanitarian service to advance Moledecc\'s mission of leadership excellence.',
     image: '/images/oriedo2.jpeg',
     social: {
       linkedin: '#',
@@ -161,7 +153,6 @@ const teamMembers = [
     id: 9,
     name: 'Eliot Owiti', 
     role: 'Communication Officer',
-    bio: 'Skilled communication professional responsible for managing internal and external communications, media relations, and public outreach strategies to enhance organizational visibility and engagement.',
     image: '/images/eliot.png',
     social: {
       linkedin: '#',
@@ -193,8 +184,7 @@ const TeamMemberCard: React.FC<{
       <div className="modal-details">
         <h3>{member.name}</h3>
         <p className="role">{member.role}</p>
-        <p className="bio">{member.bio}</p>
-        <div className="contact-info">
+                <div className="contact-info">
           <a href={`mailto:${member.social.email}`}>
             <FaEnvelope className="w-5 h-5" />
             {member.social.email}
@@ -536,21 +526,6 @@ const About: React.FC = () => {
                 <div className={styles.teamMemberContent}>
                   <h3 className={styles.teamMemberName}>{member.name}</h3>
                   <span className={styles.teamMemberRole}>{member.role}</span>
-                  <p className={styles.teamMemberBio}>
-                    {member.bio}
-                  </p>
-                  <div className={styles.teamSocialLinks}>
-                    {member.social?.linkedin && (
-                      <a href={member.social.linkedin} target="_blank" rel="noopener noreferrer" className={styles.teamSocialLink} aria-label={`${member.name}'s LinkedIn`}>
-                        <FaLinkedin />
-                      </a>
-                    )}
-                    {member.social?.twitter && (
-                      <a href={member.social.twitter} target="_blank" rel="noopener noreferrer" className={styles.teamSocialLink} aria-label={`${member.name}'s Twitter`}>
-                        <FaTwitter />
-                      </a>
-                    )}
-                  </div>
                 </div>
               </motion.div>
                   ))}
@@ -587,26 +562,6 @@ const About: React.FC = () => {
                       <div className={styles.teamMemberContent}>
                         <h3 className={styles.teamMemberName}>{member.name}</h3>
                         <span className={styles.teamMemberRole}>{member.role}</span>
-                        <p className={styles.teamMemberBio}>
-                          {member.bio}
-                        </p>
-                        <div className={styles.teamSocialLinks}>
-                          {member.social?.linkedin && (
-                            <a href={member.social.linkedin} target="_blank" rel="noopener noreferrer" className={styles.teamSocialLink} aria-label={`${member.name}'s LinkedIn`}>
-                              <FaLinkedin />
-                            </a>
-                          )}
-                          {member.social?.twitter && (
-                            <a href={member.social.twitter} target="_blank" rel="noopener noreferrer" className={styles.teamSocialLink} aria-label={`${member.name}'s Twitter`}>
-                              <FaTwitter />
-                            </a>
-                          )}
-                          {member.social?.github && (
-                            <a href={member.social.github} target="_blank" rel="noopener noreferrer" className={styles.teamSocialLink} aria-label={`${member.name}'s GitHub`}>
-                              <FaGithub />
-                            </a>
-                          )}
-                        </div>
                       </div>
                     </motion.div>
                   ))}
@@ -651,38 +606,6 @@ const About: React.FC = () => {
                     <div className="bg-gray-100 rounded-lg aspect-square flex items-center justify-center">
                       <FaUser className="w-32 h-32 text-gray-400" />
                     </div>
-                    <div className="mt-4 flex justify-center space-x-4">
-                      {selectedMember.social.linkedin && (
-                        <a 
-                          href={selectedMember.social.linkedin} 
-                          target="_blank" 
-                          rel="noopener noreferrer"
-                          className="text-gray-500 hover:text-blue-600 transition-colors"
-                        >
-                          <FaLinkedin className="w-6 h-6" />
-                        </a>
-                      )}
-                      {selectedMember.social.twitter && (
-                        <a 
-                          href={selectedMember.social.twitter} 
-                          target="_blank" 
-                          rel="noopener noreferrer"
-                          className="text-gray-500 hover:text-blue-400 transition-colors"
-                        >
-                          <FaTwitter className="w-6 h-6" />
-                        </a>
-                      )}
-                      {selectedMember.social.github && (
-                        <a 
-                          href={selectedMember.social.github} 
-                          target="_blank" 
-                          rel="noopener noreferrer"
-                          className="text-gray-500 hover:text-gray-700 transition-colors"
-                        >
-                          <FaGithub className="w-6 h-6" />
-                        </a>
-                      )}
-                    </div>
                     
                     <div className="mt-6 space-y-3">
                       <a 
@@ -704,10 +627,7 @@ const About: React.FC = () => {
                   
                   <div className="w-full md:w-2/3">
                     <h4 className="text-lg font-semibold text-gray-900 mb-3">About</h4>
-                    <p className="text-gray-600 leading-relaxed">
-                      {selectedMember.bio}
-                    </p>
-                    
+                                        
                     <div className="mt-6 pt-6 border-t border-gray-200">
                       <h4 className="text-lg font-semibold text-gray-900 mb-3">Experience</h4>
                       <div className="space-y-4">
