@@ -562,6 +562,384 @@
   }
 }
 
+/* Testimonials Specific Styles */
+
+/* Testimonials Grid */
+.testimonialsGrid {
+  margin: 4rem 0;
+}
+
+.grid {
+  display: grid;
+  gap: 2rem;
+  grid-template-columns: 1fr;
+}
+
+.testimonialCard {
+  background: #ffffff;
+  border-radius: 1rem;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  padding: 2rem;
+  transition: all 0.3s ease;
+  border: 1px solid #E5E7EB;
+  position: relative;
+  overflow: hidden;
+}
+
+.testimonialCard::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #005B99, #00AEEF);
+}
+
+.testimonialCard:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.15), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+.cardHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 1.5rem;
+}
+
+.cardRating {
+  display: flex;
+  gap: 0.25rem;
+}
+
+.cardQuoteIcon {
+  width: 2rem;
+  height: 2rem;
+  color: #E5E7EB;
+}
+
+.cardContent {
+  font-size: 1.125rem;
+  line-height: 1.7;
+  color: #374151;
+  margin-bottom: 2rem;
+  font-style: italic;
+  position: relative;
+  padding: 0 1rem;
+}
+
+.cardContent::before {
+  content: '"';
+  position: absolute;
+  top: -0.5rem;
+  left: -0.5rem;
+  font-size: 3rem;
+  color: #E5E7EB;
+  font-family: serif;
+  line-height: 1;
+}
+
+.cardFooter {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.cardAuthor {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.cardAvatar {
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #005B99, #00AEEF);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  font-weight: 600;
+  font-size: 1.125rem;
+  flex-shrink: 0;
+}
+
+.cardAuthorInfo {
+  flex: 1;
+}
+
+.cardAuthorName {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: #111827;
+  margin-bottom: 0.25rem;
+}
+
+.cardAuthorPosition {
+  font-size: 0.875rem;
+  color: #005B99;
+  margin-bottom: 0.25rem;
+  font-weight: 500;
+}
+
+.cardAuthorCompany {
+  font-size: 0.875rem;
+  color: #6B7280;
+}
+
+.cardProject {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.25rem;
+  text-align: right;
+}
+
+.cardIndustry {
+  display: inline-block;
+  padding: 0.25rem 0.75rem;
+  background-color: #EFF6FF;
+  color: #1E40AF;
+  font-size: 0.75rem;
+  font-weight: 600;
+  border-radius: 9999px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.cardProjectName {
+  font-size: 0.875rem;
+  color: #6B7280;
+  font-weight: 500;
+  max-width: 200px;
+}
+
+/* Responsive Styles for Testimonials */
+@media (min-width: 640px) {
+  .testimonialContent {
+    font-size: 1.25rem;
+  }
+  
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .ctaButtons {
+    flex-direction: row;
+  }
+}
+
+@media (min-width: 768px) {
+  .cardFooter {
+    align-items: center;
+  }
+  
+  .cardProject {
+    text-align: right;
+  }
+}
+
+@media (min-width: 1024px) {
+  .grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  
+  .testimonialCard {
+    padding: 2.5rem;
+  }
+  
+  .ctaCard {
+    padding: 5rem 3rem;
+  }
+  
+  .ctaTitle {
+    font-size: 3rem;
+  }
+}
+
+@media (min-width: 1280px) {
+  .testimonialContent {
+    font-size: 1.5rem;
+  }
+  
+  .testimonialCard:hover {
+    transform: translateY(-12px);
+  }
+}
+
+/* Call to Action Section */
+.ctaSection {
+  margin: 6rem 0 4rem;
+}
+
+.ctaCard {
+  background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
+  border-radius: 1.5rem;
+  padding: 5rem 3rem;
+  text-align: center;
+  color: #2C1810;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 20px 40px rgba(255, 215, 0, 0.4);
+}
+
+.ctaCard::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  right: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.3) 0%, transparent 70%);
+  animation: pulse 4s ease-in-out infinite;
+}
+
+.ctaCard::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(45deg, transparent 30%, rgba(255, 255, 255, 0.2) 50%, transparent 70%);
+  animation: shimmer 3s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { transform: scale(1); opacity: 0.4; }
+  50% { transform: scale(1.1); opacity: 0.7; }
+}
+
+@keyframes shimmer {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+.ctaTitle {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  position: relative;
+  z-index: 1;
+  text-shadow: 0 2px 4px rgba(44, 24, 16, 0.1);
+}
+
+.ctaDescription {
+  font-size: 1.25rem;
+  line-height: 1.6;
+  max-width: 600px;
+  margin: 0 auto 2.5rem;
+  opacity: 0.9;
+  position: relative;
+  z-index: 1;
+  font-weight: 500;
+  color: #3D2817;
+}
+
+.ctaButtons {
+  display: flex;
+  gap: 1.5rem;
+  justify-content: center;
+  flex-wrap: wrap;
+  position: relative;
+  z-index: 1;
+}
+
+.primaryButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.25rem 3rem;
+  background: linear-gradient(135deg, #2C1810 0%, #5D4037 100%);
+  color: #FFD700;
+  font-size: 1.125rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 2.5rem;
+  cursor: pointer;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  text-decoration: none;
+  box-shadow: 0 8px 25px rgba(44, 24, 16, 0.3);
+  position: relative;
+  overflow: hidden;
+}
+
+.primaryButton::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 215, 0, 0.4), transparent);
+  transition: left 0.5s ease;
+}
+
+.primaryButton:hover {
+  background: linear-gradient(135deg, #3D2817 0%, #6D4C41 100%);
+  transform: translateY(-4px) scale(1.05);
+  box-shadow: 0 15px 35px rgba(44, 24, 16, 0.4);
+  color: #FFED4E;
+}
+
+.primaryButton:hover::before {
+  left: 100%;
+}
+
+.primaryButton:active {
+  transform: translateY(-2px) scale(1.02);
+}
+
+.secondaryButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.25rem 3rem;
+  background: rgba(44, 24, 16, 0.1);
+  backdrop-filter: blur(10px);
+  color: #2C1810;
+  font-size: 1.125rem;
+  font-weight: 600;
+  border: 2px solid rgba(44, 24, 16, 0.3);
+  border-radius: 2.5rem;
+  cursor: pointer;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  text-decoration: none;
+  position: relative;
+  overflow: hidden;
+}
+
+.secondaryButton::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(44, 24, 16, 0.2), transparent);
+  transition: left 0.5s ease;
+}
+
+.secondaryButton:hover {
+  background: rgba(44, 24, 16, 0.15);
+  border-color: rgba(44, 24, 16, 0.5);
+  transform: translateY(-4px) scale(1.05);
+  box-shadow: 0 15px 35px rgba(44, 24, 16, 0.2);
+  color: #2C1810;
+}
+
+.secondaryButton:hover::before {
+  left: 100%;
+}
+
+.secondaryButton:active {
+  transform: translateY(-2px) scale(1.02);
+}
+
 /* Animations */
 @keyframes fadeIn {
   from {

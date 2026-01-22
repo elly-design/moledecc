@@ -6,10 +6,11 @@ import styles from './BookingModal.module.css';
 interface BookingModalProps {
   isOpen: boolean;
   onClose: () => void;
+  preselectedService?: string;
 }
 
-export default function BookingModal({ isOpen, onClose }: BookingModalProps) {
-  const [selectedOption, setSelectedOption] = useState<'whatsapp' | 'form' | null>(null);
+export default function BookingModal({ isOpen, onClose, preselectedService }: BookingModalProps) {
+  const [selectedOption, setSelectedOption] = useState(preselectedService || null);
   const [formData, setFormData] = useState({
     name: '',
     email: '',
