@@ -631,7 +631,7 @@ const Home = () => {
             >
               <h3 className={styles.aboutSubtitle}></h3>
               <p className={styles.aboutDescription}>
-                Moledecc Leadership Transformation Initiative & Associates is a leadership development and social transformation organization dedicated to empowering individuals and communities through knowledge, mentorship and advocacy. We partner with schools, community-based organizations, corporate institutions, government agencies and civil society to deliver high-impact leadership and empowerment programs.
+                Moledecc Leadership Transformational Initiative is a leadership development and social transformation organization dedicated to empowering individuals and communities through knowledge, mentorship and advocacy. We partner with schools, community-based organizations, corporate institutions, government agencies and civil society to deliver high-impact leadership and empowerment programs.
               </p>
               <p className={styles.aboutDescription}>
                 Our approach blends practical leadership skills, ethical governance principles, gender inclusion and youth development to create well-rounded leaders who are prepared to navigate real-world challenges.

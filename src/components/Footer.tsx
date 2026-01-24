@@ -154,7 +154,7 @@ const Footer = () => {
                   Moledecc
                 </span>
                 <span className="font-light text-gray-300 leading-tight">
-                  {' '}Leadership Transformational Initiative & Associates
+                  {' '}Leadership Transformational Initiative
                 </span>
               </div>
               <p className={styles.tagline}>
