@@ -61,8 +61,8 @@ const teamMembers = [
     social: {
       linkedin: '#',
       twitter: '#',
-      email: 'sarah@example.com',
-      phone: '+1 (555) 123-4567'
+      email: 'moledecc2@gmail.com',
+      phone: '+254789618945'
     }
   },
   {
@@ -73,8 +73,8 @@ const teamMembers = [
     social: {
       linkedin: '#',
       twitter: '#',
-      email: 'michael@example.com',
-      phone: '+1 (555) 234-5678'
+      email: 'moledecc2@gmail.com',
+      phone: '+254789618945'
     }
   },
   {
@@ -85,8 +85,8 @@ const teamMembers = [
     social: {
       linkedin: '#',
       twitter: '#',
-      email: 'amina@example.com',
-      phone: '+1 (555) 345-6789'
+      email: 'moledecc2@gmail.com',
+      phone: '+254789618945'
     }
   },
   {
@@ -97,8 +97,8 @@ const teamMembers = [
     social: {
       linkedin: '#',
       github: '#',
-      email: 'david@example.com',
-      phone: '+1 (555) 456-7890'
+      email: 'moledecc2@gmail.com',
+      phone: '+254789618945'
     }
   },
   {
@@ -109,8 +109,8 @@ const teamMembers = [
     social: {
       linkedin: '#',
       twitter: '#',
-      email: 'emily@example.com',
-      phone: '+1 (555) 567-8901'
+      email: 'moledecc2@gmail.com',
+      phone: '+254789618945'
     }
   },
   {
@@ -121,8 +121,8 @@ const teamMembers = [
     social: {
       linkedin: '#',
       twitter: '#',
-      email: 'james@example.com',
-      phone: '+1 (555) 678-9012'
+      email: 'moledecc2@gmail.com',
+      phone: '+254789618945'
     }
   },
   {
@@ -133,8 +133,8 @@ const teamMembers = [
     social: {
       linkedin: '#',
       twitter: '#',
-      email: 'joseph@example.com',
-      phone: '+1 (555) 789-0123'
+      email: 'moledecc2@gmail.com',
+      phone: '+254789618945'
     }
   },
   {
@@ -145,8 +145,8 @@ const teamMembers = [
     social: {
       linkedin: '#',
       twitter: '#',
-      email: 'joseph@example.com',
-      phone: '+1 (555) 789-0123'
+      email: 'moledecc2@gmail.com',
+      phone: '+254789618945'
     }
   },
   {
@@ -157,8 +157,8 @@ const teamMembers = [
     social: {
       linkedin: '#',
       twitter: '#',
-      email: 'joseph@example.com',
-      phone: '+1 (555) 789-0123'
+      email: 'ellyman2021@gmail.com',
+      phone: '+254 113 011949'
     }
   }
 ];
@@ -590,60 +590,158 @@ const About: React.FC = () => {
               <div className="p-6">
                 <div className="flex justify-between items-start mb-6">
                   <div>
-                    <h3 className="text-2xl font-bold text-gray-900">{selectedMember.name}</h3>
-                    <p className="text-blue-600 font-medium">{selectedMember.role}</p>
+                    <h3 className="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600 mb-1">
+                      {selectedMember.name}
+                    </h3>
+                    <p className="text-blue-600 font-semibold text-lg">{selectedMember.role}</p>
                   </div>
                   <button 
                     onClick={closeMemberModal}
-                    className="text-gray-400 hover:text-gray-600 transition-colors"
+                    className="group relative w-10 h-10 bg-gradient-to-br from-gray-100 to-gray-200 hover:from-red-50 hover:to-red-100 rounded-xl flex items-center justify-center transition-all duration-300 hover:scale-110 border border-gray-200 hover:border-red-200"
                   >
-                    <FaTimes className="w-6 h-6" />
+                    <FaTimes className="w-5 h-5 text-gray-500 group-hover:text-red-500 transition-colors duration-300" />
+                    <div className="absolute inset-0 rounded-xl bg-gradient-to-r from-red-500 to-pink-500 opacity-0 group-hover:opacity-10 transition-opacity duration-300"></div>
                   </button>
                 </div>
                 
                 <div className="flex flex-col md:flex-row gap-8">
                   <div className="w-full md:w-1/3">
-                    <div className="bg-gray-100 rounded-lg aspect-square flex items-center justify-center">
-                      <FaUser className="w-32 h-32 text-gray-400" />
+                    <div className="relative">
+                      <div className="bg-gradient-to-br from-blue-50 to-indigo-100 rounded-2xl aspect-square flex items-center justify-center border border-blue-100 shadow-lg">
+                        <FaUser className="w-32 h-32 text-blue-400" />
+                      </div>
+                      <div className="absolute -bottom-2 -right-2 w-8 h-8 bg-gradient-to-br from-blue-500 to-blue-600 rounded-full flex items-center justify-center shadow-lg">
+                        <FaCheckCircle className="w-4 h-4 text-white" />
+                      </div>
                     </div>
                     
-                    <div className="mt-6 space-y-3">
-                      <a 
-                        href={`mailto:${selectedMember.social.email}`}
-                        className="flex items-center text-gray-700 hover:text-blue-600 transition-colors"
-                      >
-                        <FaEnvelope className="w-5 h-5 mr-2 text-blue-500" />
-                        {selectedMember.social.email}
-                      </a>
-                      <a 
-                        href={`tel:${selectedMember.social.phone}`}
-                        className="flex items-center text-gray-700 hover:text-blue-600 transition-colors"
-                      >
-                        <FaPhone className="w-5 h-5 mr-2 text-blue-500" />
-                        {selectedMember.social.phone}
-                      </a>
+                    <div className="mt-8">
+                      <div className="bg-white rounded-2xl shadow-lg border border-gray-100 overflow-hidden">
+                        <div className="bg-gradient-to-r from-blue-500 to-purple-600 p-4">
+                          <h4 className="text-white font-semibold text-lg">Contact Information</h4>
+                        </div>
+                        
+                        <div className="p-6 space-y-6">
+                          <div className="bg-gradient-to-r from-blue-50 to-indigo-50 rounded-xl p-4 border border-blue-100">
+                            <div className="flex items-center mb-3">
+                              <div className="w-8 h-8 bg-gradient-to-br from-blue-500 to-blue-600 rounded-lg flex items-center justify-center mr-3">
+                                <FaEnvelope className="w-4 h-4 text-white" />
+                              </div>
+                              <label className="text-sm font-semibold text-blue-600 uppercase tracking-wider">Email Address</label>
+                            </div>
+                            <a 
+                              href={`mailto:${selectedMember.social.email}`}
+                              className="block text-gray-900 font-medium text-lg hover:text-blue-600 transition-colors duration-300"
+                            >
+                              {selectedMember.social.email || 'Contact for email'}
+                            </a>
+                          </div>
+                          
+                          <div className="bg-gradient-to-r from-emerald-50 to-green-50 rounded-xl p-4 border border-emerald-100">
+                            <div className="flex items-center mb-3">
+                              <div className="w-8 h-8 bg-gradient-to-br from-emerald-500 to-emerald-600 rounded-lg flex items-center justify-center mr-3">
+                                <FaPhone className="w-4 h-4 text-white" />
+                              </div>
+                              <label className="text-sm font-semibold text-emerald-600 uppercase tracking-wider">Phone Number</label>
+                            </div>
+                            <a 
+                              href={`tel:${selectedMember.social.phone}`}
+                              className="block text-gray-900 font-medium text-lg hover:text-emerald-600 transition-colors duration-300"
+                            >
+                              {selectedMember.social.phone || 'Contact for phone'}
+                            </a>
+                          </div>
+                        </div>
+                      </div>
                     </div>
                   </div>
                   
                   <div className="w-full md:w-2/3">
-                    <h4 className="text-lg font-semibold text-gray-900 mb-3">About</h4>
-                                        
-                    <div className="mt-6 pt-6 border-t border-gray-200">
-                      <h4 className="text-lg font-semibold text-gray-900 mb-3">Experience</h4>
-                      <div className="space-y-4">
+                    <motion.div
+                      initial={{ opacity: 0, x: 20 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      transition={{ duration: 0.6 }}
+                    >
+                      <div className="flex items-center mb-6">
+                        <div className="w-1 h-8 bg-gradient-to-b from-blue-500 to-blue-600 mr-4 rounded-full"></div>
+                        <h4 className="text-2xl font-bold text-gray-900">Professional Profile</h4>
+                      </div>
+                      
+                      <div className={styles.storyGrid}>
                         {[
-                          { title: 'Experience', value: '15+ years' },
-                          { title: 'Expertise', value: selectedMember.role },
-                          { title: 'Education', value: 'PhD in Business Administration' },
-                          { title: 'Location', value: 'Nairobi, Kenya' },
+                          { 
+                            title: 'Experience', 
+                            icon: '📊',
+                            color: 'from-blue-500 to-blue-600',
+                            description: 'Professional experience in leadership and transformation'
+                          },
+                          { 
+                            title: 'Expertise', 
+                            value: selectedMember.role,
+                            icon: '💡',
+                            color: 'from-emerald-500 to-emerald-600',
+                            description: 'Specialized skills and areas of focus'
+                          },
+                          { 
+                            title: 'Education', 
+                            value: selectedMember.name.includes('Richard Otieno') ? 'Masters in Theology' : 
+                                   selectedMember.name.includes('Emmanuel') ? 'Psychologist in Masters' : 
+                                   selectedMember.name.includes('Eliot') ? 'Software Engineering' : 
+                                   'PhD in Business Administration',
+                            icon: '🎓',
+                            color: 'from-purple-500 to-purple-600',
+                            description: 'Academic qualifications and certifications'
+                          },
+                          { 
+                            title: 'Location', 
+                            value: selectedMember.name.includes('Juliana') ? 'Nigeria' : 'Mombasa, Kenya',
+                            icon: '📍',
+                            color: 'from-amber-500 to-amber-600',
+                          }
                         ].map((item, index) => (
-                          <div key={index} className="flex justify-between">
-                            <span className="text-gray-600">{item.title}</span>
-                            <span className="font-medium text-gray-900">{item.value}</span>
-                          </div>
+                          <motion.div
+                            key={index}
+                            initial={{ opacity: 0, y: 30 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.5, delay: index * 0.1 }}
+                            whileHover={{ 
+                              scale: 1.02,
+                              y: -5,
+                              transition: { duration: 0.3 }
+                            }}
+                            className={styles.storyBlock}
+                          >
+                            <div className="flex items-center justify-between mb-4">
+                              <div className={`w-14 h-14 rounded-2xl bg-gradient-to-br ${item.color} flex items-center justify-center text-2xl shadow-lg`}>
+                                {item.icon}
+                              </div>
+                              <div className={`px-3 py-1 rounded-full bg-gradient-to-r ${item.color} text-white text-xs font-semibold opacity-80`}>
+                                Active
+                              </div>
+                            </div>
+                            
+                            <div className="space-y-2">
+                              <h3 className="text-xs font-bold text-gray-500 uppercase tracking-wider">
+                                {item.title}
+                              </h3>
+                              <p className="text-gray-900 font-bold text-lg leading-tight">
+                                {item.value}
+                              </p>
+                              <p className="text-xs text-gray-500 leading-relaxed">
+                                {item.description}
+                              </p>
+                            </div>
+                            
+                            <div className={`mt-4 h-1 bg-gradient-to-r ${item.color} rounded-full opacity-20`}></div>
+                            
+                            <div className="mt-3 flex items-center justify-between">
+                              <span className="text-xs text-gray-400">Verified Information</span>
+                              <div className={`w-2 h-2 rounded-full bg-gradient-to-r ${item.color}`}></div>
+                            </div>
+                          </motion.div>
                         ))}
                       </div>
-                    </div>
+                    </motion.div>
                   </div>
                 </div>
               </div>
