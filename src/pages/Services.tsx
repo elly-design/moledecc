@@ -14,6 +14,7 @@ import {
   ChevronDownIcon
 } from '@heroicons/react/24/outline';
 import styles from './Services.module.css';
+import AIChatbox from '../components/AIChatbox';
 
 interface Service {
   name: string;
@@ -290,6 +291,9 @@ const Services = () => {
           </div>
         </div>
       </section>
+      
+      {/* AI Chatbox */}
+      <AIChatbox />
     </div>
   );
 };

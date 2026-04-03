@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ArrowRightIcon, XMarkIcon, CheckIcon } from '@heroicons/react/24/outline';
 import styles from './Projects.module.css';
+import AIChatbox from '../components/AIChatbox';
 
 type Project = {
   id: number;
@@ -295,6 +296,9 @@ export default function Projects() {
           </motion.div>
         )}
       </AnimatePresence>
+      
+      {/* AI Chatbox */}
+      <AIChatbox />
     </div>
   );
-}
+};

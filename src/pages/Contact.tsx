@@ -9,6 +9,7 @@ import {
   ArrowRightIcon
 } from '@heroicons/react/24/outline';
 import styles from './Contact.module.css';
+import AIChatbox from '../components/AIChatbox';
 
 // Custom components to handle boolean attributes
 const MotionDiv = motion.create('div');
@@ -427,6 +428,9 @@ const Contact = () => {
           </div>
         </div>
       </MotionDiv>
+      
+      {/* AI Chatbox */}
+      <AIChatbox />
     </div>
   );
 };

@@ -2,6 +2,7 @@ import React, { useState, useRef, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import styles from '../styles/About.module.css';
+import AIChatbox from '../components/AIChatbox';
 
 // Use the base motion components directly
 const motionComponents = {
@@ -153,7 +154,7 @@ const teamMembers = [
     id: 9,
     name: 'Eliot Owiti', 
     role: 'Communication Officer',
-    image: '/images/eliot.png',
+    image: '/images/owiti (2).png',
     social: {
       linkedin: '#',
       twitter: '#',
@@ -882,6 +883,9 @@ const About: React.FC = () => {
           {typeof window !== 'undefined' && window.innerWidth >= 768 && <FaArrowRight />}
         </Link>
       </div>
+
+      {/* AI Chatbox */}
+      <AIChatbox />
     </div>
   );
 };

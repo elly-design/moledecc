@@ -4,6 +4,7 @@ import { StarIcon } from '@heroicons/react/24/solid';
 import { ChatBubbleLeftRightIcon } from '@heroicons/react/24/outline';
 import styles from '../styles/Blog.module.css';
 import BookingModal from '../components/BookingModal';
+import AIChatbox from '../components/AIChatbox';
 
 type Testimonial = {
   id: number;
@@ -198,11 +199,8 @@ export default function Testimonials() {
         </div>
       </div>
       
-      <BookingModal
-        isOpen={isBookingModalOpen}
-        onClose={closeBookingModal}
-        preselectedService={selectedService}
-      />
+      {/* AI Chatbox */}
+      <AIChatbox />
     </div>
   );
 }

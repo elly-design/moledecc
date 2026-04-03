@@ -5,7 +5,7 @@ import { PaperAirplaneIcon, XMarkIcon, ChatBubbleBottomCenterTextIcon } from '@h
 const AIChatbox = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [messages, setMessages] = useState([
-    { text: "Hello! I'm your AI assistant. How can I help you today?", isUser: false }
+    { text: "Hello! I'm your Moledecc assistant. How can I help you today?", isUser: false }
   ]);
   const [inputValue, setInputValue] = useState('');
   const messagesEndRef = useRef<HTMLDivElement>(null);
@@ -89,7 +89,31 @@ const AIChatbox = () => {
               justifyContent: 'space-between',
               alignItems: 'center'
             }}>
-              <h3 style={{ fontWeight: 600, fontSize: '1.125rem' }}>AI Assistant</h3>
+              <div style={{ 
+              display: 'flex', 
+              alignItems: 'center', 
+              justifyContent: 'center',
+              gap: '1rem',
+              flexWrap: 'wrap'
+            }}>
+              <img 
+                  src="/images/moledecc.png" 
+                  alt="Moledecc Logo" 
+                  style={{ 
+                    height: '2.5rem', 
+                    width: '2.5rem',
+                    objectFit: 'contain',
+                    borderRadius: '0.5rem'
+                  }}
+                />
+              <h3 style={{ 
+                fontWeight: 700, 
+                fontSize: '1.25rem',
+                margin: 0,
+                color: 'white',
+                textShadow: '0 2px 4px rgba(0,0,0,0.1)'
+              }}>Moledecc</h3>
+            </div>
               <button 
                 onClick={() => setIsOpen(false)}
                 style={{
